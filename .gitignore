@@ -2,9 +2,11 @@
 css/bootstrap-5.3.2/
 fonts/NotoSansKR/
 fonts/Roboto/
+fonts/.DS_Store
 js/3dViewer/
 js/pdfjs/
 js/jsTree/
+js/.DS_Store
 
 # 파일
 js/jquery.bpopup.min.js
