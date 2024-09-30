@@ -182,30 +182,33 @@
 
 	$(document).ready(function () {
 
+		$('.modal').addClass('folded');
+		// Function to initialize jstree
+		initializeJSTree();
+
 		let isCollapsed = true; // 초기 상태를 '닫힘'으로 설정
 		$('.modal-facility').find('.material-symbols-outlined').css('transform', 'scaleX(-1)');
 
-		$('#toggleSidePanel').on('click', function () {
-			if (isCollapsed) { 
+		// 함수화
+		function toggleSidePanel() {
+			if (isCollapsed) {
 				// 열림
 				$('.modal').removeClass('modal-move').removeClass('folded').css('left', '').css('top', '');
 				$('.contents-panel').addClass('expanded'); // 너비를 80픽셀로 줄임
-				$(this).attr('title', '패널 닫기'); // 타이틀 변경
-				$(this).find('.material-symbols-outlined').css('transform', 'scaleX(1)');
-			} else { 
+				$('#toggleSidePanel').attr('title', '패널 닫기'); // 타이틀 변경
+				$('#toggleSidePanel').find('.material-symbols-outlined').css('transform', 'scaleX(1)');
+			} else {
 				// 닫힘
 				$('.modal').addClass('modal-move').addClass('folded');
 				$('.contents-panel').removeClass('expanded'); // 기본 너비로 복원
-				$(this).attr('title', '패널 열기'); // 타이틀 변경
-				$(this).find('.material-symbols-outlined').css('transform', 'scaleX(-1)');
+				$('#toggleSidePanel').attr('title', '패널 열기'); // 타이틀 변경
+				$('#toggleSidePanel').find('.material-symbols-outlined').css('transform', 'scaleX(-1)');
 			}
 			isCollapsed = !isCollapsed; // 상태 토글
-		});
-		
-		$('.modal').addClass('folded');
+		}
 
-		// Function to initialize jstree
-		initializeJSTree();
+		// 클릭 이벤트에 함수 바인딩
+		$('#toggleSidePanel').on('click', toggleSidePanel);
 
 		// 3.3.15 버전
 		function initializeJSTree() {
