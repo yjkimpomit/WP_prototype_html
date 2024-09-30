@@ -1,0 +1,341 @@
+@charset "utf-8";
+
+/*#################### 모달 ####################*/
+.modal.modal-move .modal-header {
+	cursor: move;
+}
+
+/* override */
+.modal-dialog {
+	width: auto;
+	max-width: var(--wp-modal-width);
+}
+
+.modal.folded .modal-dialog {
+	max-width: var(--wp-modal-folded);
+}
+
+.modal-content {
+	border: none;
+	border-radius: 0;
+}
+
+.modal-header {
+	height: 64px;
+}
+
+.modal-title {
+	font-size: 20px;
+	font-weight: 700;
+	color: var(--text-brand-default);
+}
+
+.modal-header .btn-close {
+	border-radius: 100px;
+	width: 1.5rem;
+	height: 1.5rem;
+
+	background-color: var(--bg-brand-darkhover);
+	opacity: 1;
+
+	background-image: url("../images/icons/btn-close.svg");
+	background-size: 24px;
+}
+
+.modal-header .btn-close:hover {
+	background-color: var(--bg-brand-defaulthover);
+}
+
+/* 설비팝업 */
+.modal-facility {
+	height: calc(800px - 64px);
+	display: flex;
+	position: relative;
+}
+
+.modal-facility [class*='-panel'] {
+	align-items: stretch;
+}
+
+/*  */
+.modal-facility > .toggle-side {
+	top: 1rem;
+	left: 304px;
+}
+
+.modal-facility .side-panel {
+	flex-direction: column;
+}
+
+.modal-facility .side-panel .form-control {
+	height: 40px;
+	width: calc(100% - 48px);
+	margin-bottom: 1rem;
+
+	background-image: url("../images/icons/icon-search.svg");
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-position: calc(100% - 8px) center;
+}
+
+/* toggle menu */
+#toggleSidePanel {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: var(--bg-brand-dark);
+	border-color: var(--bg-brand-darkhover);
+
+	position: absolute;
+	z-index: 300;
+}
+#toggleSidePanel:hover {
+	background-color: var(--bg-brand-darkhover);
+}
+
+
+/* 사이드패널 확장, 축소 */
+.side-panel {
+	flex: 1 0 var(--wp-modal-folded);
+	vertical-align: top;
+	overflow: hidden;
+
+	background-color: var(--bg-neutral-tertiary);
+	padding: 1rem;
+}
+
+.side-panel.left {	
+	border-right: solid 1px var(--border-neutral-secondary) !important;
+}
+.side-panel.right {	
+	border-left: solid 1px var(--border-neutral-secondary) !important;
+}
+
+.contents-panel {
+	display: none;
+}
+.contents-panel.expanded {
+	display: inline-block;
+	vertical-align: top;
+	
+	flex: 1 0 calc(100% - var(--wp-modal-folded));
+	padding: 1rem;
+}
+
+/* 눈 모양 아이콘 스타일 */
+.eye-icon {
+	cursor: pointer;
+	margin-left: 4px;
+	margin-right: 4px;
+	color: var(--icon-brand-secondary);
+	font-size: 16px; /* 아이콘 크기 조정 */
+	line-height: 24px;
+}
+
+.jstree-box .menu-item {
+	display: flex;
+	align-items: center;
+}
+
+/* jstree menu */
+.jstree-box {
+	overflow-y: scroll;
+	height: calc(100% - 38px - 1rem);
+}
+.jstree-default .jstree-anchor {
+	font-size: 15px;
+	letter-spacing: -.025rem;
+}
+
+/* jstree search result */
+.jstree-default .jstree-search {
+	font-style: normal;
+	color: var(--text-brand-secondary);
+	
+	--bs-bg-opacity: 0.2;
+	background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.jstree-default .jstree-search .eye-icon {
+	color: var(--text-brand-secondary);
+}
+
+/* 대시보드 */
+
+/* dashboard - output */
+.modal-dashboard .plant,
+.modal-dashboard .steam,
+.modal-dashboard .reheat {
+	padding-left: 96px;
+}
+
+.modal-dashboard .plant {
+	background: url("../images/icons/output-icon01.svg") no-repeat 16px center;
+}
+.modal-dashboard .steam {
+	background: url("../images/icons/output-icon02.svg") no-repeat 16px center;
+	position: relative;
+}
+.modal-dashboard .reheat {
+	background: url("../images/icons/output-icon03.svg") no-repeat 16px center;
+}
+
+.modal-dashboard .steam::before,
+.modal-dashboard .steam::after {
+	content: '';
+	display: block;
+
+	width: 1px;
+	height: 72px;
+
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.modal-dashboard .steam::before {
+	left: calc(var(--bs-gutter-x) * -0.5);
+	border-left: solid 1px var(--table-tablebox-border2);
+}
+.modal-dashboard .steam::after {
+	right: calc(var(--bs-gutter-x) * -0.5);
+	border-right: solid 1px var(--table-tablebox-border2);
+}
+
+/* chart */
+.modal-dashboard .chart {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-dashboard .chart img {
+	max-width: 328px;
+	max-height: 216px;
+}
+
+/* typo */
+.modal-dashboard .title {
+	font-size: 16px;
+	font-weight: 700;
+	margin-bottom: .5rem;
+}
+
+.modal-dashboard span {
+	font-size: 15px;
+	font-weight: 500;
+	padding-right: .5rem;
+}
+.modal-dashboard strong {
+	font-family: var(--font-family-number);
+	font-size: 24px;
+	font-weight: 700;
+}
+.modal-dashboard strong > small {
+	font-size: 12px;
+	font-weight: 500;
+}
+
+/* apc */
+[class*="apc-"] > * {
+	display: none;
+}
+
+[class*="apc-"] {
+	width: 278px;
+	height: 144px;
+}
+
+.apc-inlet {
+	background: url("../images/apc-item01.svg") no-repeat left center;
+}
+.apc-outlet {
+	background: url("../images/apc-item02.svg") no-repeat left center;
+}
+.apc-debris {
+	background: url("../images/apc-item03.svg") no-repeat left center;
+}
+.apc-ctcs {
+	background: url("../images/apc-item04.svg") no-repeat left center;
+}
+
+/* air info */
+.modal-dashboard .env-item,
+.modal-dashboard .env-list {
+	max-width: 280px;
+	margin: 0 auto;
+}
+
+.modal-dashboard .env-item {
+	background: url("../images/icons/air-icon.svg") no-repeat 20px center;
+	background-size: 56px;
+
+	padding-left: 100px;
+	min-height: 56px;
+}
+.modal-dashboard .env-item .title { 
+	font-size: 15px;
+	font-weight: 700;
+	color: var(--text-neutral-default);
+	margin-bottom: 0;
+}
+
+.modal-dashboard .env-title {
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--text-neutral-default);
+	display: block;
+}
+.modal-dashboard .env-value {
+	font-size: 36px;
+	line-height: 1.2;
+}
+.modal-dashboard .env-value small {
+	font-size: 16px;
+	color: var(--text-neutral-tertiary);
+}
+
+.modal-dashboard .env-list .env-title {
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--text-default-secondary);
+	
+	padding-left: 48px;
+	background: url("../images/icons/icon-lighting-yellow.svg") no-repeat 24px center;
+
+	display: inline-block;
+	position: relative;
+	width: 100px;
+	margin-right: 1rem;
+}
+
+.modal-dashboard .env-list .env-title::after {
+	background-color: var(--border-neutral-default);
+}
+
+.modal-dashboard .env-list .env-value {
+	font-size: 20px;
+	font-family: var(--font-family-number);
+	font-weight: 700;
+}
+.modal-dashboard .env-list .env-value small {
+	font-size: 12px;
+	font-weight: 400;
+}
+
+
+/*#################### 서브 ####################*/
+
+/* 버튼박스 */
+.btn-box {
+	display: flex;
+	align-items: center;
+	margin-left: -.25rem;
+	margin-right: -.25rem;
+}
+
+.btn-box .btn {
+	margin: .25rem;
+}

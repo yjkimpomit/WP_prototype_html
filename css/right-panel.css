@@ -1,0 +1,141 @@
+@charset "utf-8";
+
+/*#################### 우측패널 ####################*/
+.right-panel {
+	position: absolute;
+	top: var(--header-height);
+	right: 0;
+	z-index: 100;
+}
+
+.right-panel .apc,
+.right-panel .today {
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
+	border-radius: 32px;
+	margin: 1rem;
+
+	background-color: var(--bg-default-default);
+	
+	overflow: hidden;
+
+	width: 200px;
+}
+
+.right-panel .title {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+/* apc */
+.right-panel .apc {	
+	padding: .5rem .5rem 1rem;
+	height: 144px;
+}
+.right-panel .apc .title {
+	background-color: var(--bg-neutral-tertiary);
+	border-radius: 1000px;
+	overflow: hidden;
+
+	background-image: url("../images/icons/apc-icon01.svg");
+	background-position: .5rem center;
+	background-repeat: no-repeat;
+	background-size: 32px;
+
+	padding-left: 4rem;
+	height: 3rem;
+	margin-bottom: .75rem;
+
+	display: flex;
+	align-items: center;
+}
+
+.right-panel .apc > ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.right-panel .apc > ul > li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	
+	position: relative;
+	padding: 0 1.5rem;
+}
+
+.right-panel .apc > ul > li span {
+	font-size: 13px;
+	margin-bottom: .5rem;
+}
+
+.right-panel .apc > ul > li strong {
+	width: 32px;
+	height: 32px;
+
+	background-color: var(--bg-neutral-secondary);
+	border-radius: 20px;
+	overflow: hidden;
+
+	font-size: 20px;
+	color: var(--text-neutral-default);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.right-panel .apc > ul > li.danger strong {
+	background-color: var(--bg-danger-default);
+	color: var(--text-default-white);
+}
+
+.right-panel .apc > ul > li.danger em {
+	width: 14px;
+	height: 14px;
+	
+	background-color: var(--bg-warning-default);
+	border: solid 2px var(--bg-default-default);
+	border-radius: 20px;
+	overflow: hidden;
+
+	position: absolute;
+	top: 1.5rem;
+	left: 50%;
+	transform: translateX(55%);
+}
+
+/* today */
+.right-panel .today {
+	background-image: url("../images/icons/today-icon01.svg");
+	background-repeat: no-repeat;
+	background-position: 1rem center;
+	background-size: 32px;
+
+	height: 56px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	padding-left: 3.5rem;
+}
+.right-panel .today .title {
+	color: var(--text-brand-tertiary);
+	margin-bottom: .25rem;
+}
+
+.right-panel .today > div {
+	display: flex;
+	align-items: center;
+
+	font-family: var(--font-family-number);
+	font-size: 13px;
+}
+
+.right-panel .today .date {
+	padding-right: .5rem;
+}
+
+
+

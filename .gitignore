@@ -1,0 +1,10 @@
+# 파일이 커서 업로드 제외
+css/bootstrap-5.3.2/
+fonts/NotoSansKR/
+fonts/Roboto/
+js/3dViewer/
+js/pdfjs/
+js/jsTree/
+
+# 파일
+js/jquery.bpopup.min.js
