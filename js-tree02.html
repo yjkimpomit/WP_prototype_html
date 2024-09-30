@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsTree와 Bootstrap 레이아웃</title>
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <style>
+        .container {
+            display: flex;
+        }
+
+        #tree {
+            width: 30%;
+            border-right: 1px solid #ccc;
+            padding-right: 20px;
+        }
+
+        #node-content {
+            width: 70%;
+            padding-left: 20px;
+            display: none;
+        }
+
+        /* 눈 모양 아이콘 스타일 */
+        .eye-icon {
+            cursor: pointer;
+            margin-left: 10px;
+            color: #007bff;
+            font-size: 20px; /* 아이콘 크기 조정 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="tree"></div>
+        <div id="node-content">
+            <h3>선택된 노드 내용</h3>
+            <div id="content-display"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // jsTree 데이터를 정의합니다.
+            const treeData = [
+                { "id": "node1", "parent": "#", "text": "<span class='material-symbols-outlined eye-icon' data-node='node1'>visibility</span> <span>노드 1</span>", "icon": false },
+                { "id": "node2", "parent": "#", "text": "<span class='material-symbols-outlined eye-icon' data-node='node2'>visibility</span> <span>노드 2</span>", "icon": false },
+                { "id": "node3", "parent": "#", "text": "<span class='material-symbols-outlined eye-icon' data-node='node3'>visibility</span> <span>노드 3</span>", "icon": false },
+                { "id": "node4", "parent": "#", "text": "<span class='material-symbols-outlined eye-icon' data-node='node4'>visibility</span> <span>노드 4</span>", "icon": false },
+                { "id": "node5", "parent": "#", "text": "<span class='material-symbols-outlined eye-icon' data-node='node5'>visibility</span> <span>노드 5</span>", "icon": false },
+
+				// 하위 노드 추가 (5단계까지)
+				{ "id": "node1-1", "parent": "node1", "text": "<span class='material-symbols-outlined eye-icon' data-node='node1'>visibility</span> <span>노드 1.1</span>", "icon": false },
+				{ "id": "node1-1-1", "parent": "node1-1", "text": "<span class='material-symbols-outlined eye-icon' data-node='node1-1'>visibility</span> <span>노드 1.1.1</span>", "icon": false },
+				{ "id": "node1-1-1-1", "parent": "node1-1-1", "text": "노드 1.1.1.1" },
+				{ "id": "node1-1-1-1-1", "parent": "node1-1-1-1", "text": "노드 1.1.1.1.1" },
+				{ "id": "node1-1-1-1-2", "parent": "node1-1-1-1", "text": "노드 1.1.1.1.2" }
+            ];
+
+            // jsTree 초기화
+            $('#tree').jstree({
+                'core': {
+                    'data': treeData
+                },
+                'state': {
+                    'key': 'jstree'
+                },
+                'themes': {
+                    'dots': false
+                }
+            });
+
+            // 눈 아이콘 클릭 이벤트
+            $('#tree').on("click", ".eye-icon", function (e) {
+                e.stopPropagation(); // 클릭 이벤트가 부모 노드로 전파되지 않도록 방지
+
+                const $icon = $(this);
+                const nodeId = $icon.data('node');
+
+                // 아이콘 상태 토글
+                if ($icon.text() === 'visibility') {
+                    $icon.text('visibility_off'); // 눈 감기 아이콘
+                    console.log(`아이콘 비활성화: ${nodeId}`);
+                } else {
+                    $icon.text('visibility'); // 눈 뜨기 아이콘
+                    console.log(`아이콘 활성화: ${nodeId}`);
+                }
+            });
+
+            // 노드 텍스트 클릭 이벤트 (우측 패널 업데이트)
+            $('#tree').on("select_node.jstree", function (e, data) {
+                $('#content-display').text(`선택한 노드: ${data.node.text}`);
+                $('#node-content').show();
+            });
+        });
+    </script>
+</body>
+
+</html>

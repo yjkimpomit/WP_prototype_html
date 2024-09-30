@@ -1,0 +1,311 @@
+<div class="modal-header">
+	<h5 class="modal-title" id="modalLabel">설비정보</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body p-0">
+	<div class="modal-facility">
+		<button type="button" class="btn btn-primary toggle-side" id="toggleSidePanel" data-bs-toggle="tooltip" data-bs-placement="top" title="트리메뉴 열기">
+			<span class="material-symbols-outlined">
+			menu_open
+			</span>
+		</button>
+		<div class="side-panel left" id="sidePanel">
+
+			<!-- 검색영역 -->
+			<label for="search-input" class="form-label visually-hidden">설비명 입력</label>
+			<input class="form-control" list="datalistOptions" id="search-input" placeholder="설비명 입력">
+			<datalist id="datalistOptions">
+				<option value="Turbine 1">
+				<option value="Steam Turbine 5">
+				<option value="Gas Turbine 2">
+				<option value="HRSG 1">
+				<option value="ACC">
+			</datalist>
+			
+			<!-- 트리메뉴 -->
+			<div id="jstree" class="jstree-box border bg-white rounded d-flex"></div>
+		</div>
+		<div class="contents-panel" id="contentsPanel">
+			
+			<div id="content-display">
+				
+				<!-- 제목영역 -->
+				<div class="d-flex justify-content-between align-items-center">
+					<h2 class="box-title01">좌측 패널에서 설비명을 검색해 주세요.</h2>
+					<button type="button" class="btn btn-primary" onclick="showAlert();">
+						<span class="material-symbols-outlined">
+						view_in_ar
+						</span> 이동
+					</button>
+				</div>
+				
+				<!-- 데이터 테이블 -->
+				<div id="grid-table">
+					<!-- tab-menu -->
+					<ul class="nav nav-tabs" id="facTab" role="tablist">
+						<li class="nav-item" role="presentation">
+							<button class="nav-link active" id="tab01" data-bs-toggle="tab" data-bs-target="#tab01-pane" type="button"
+								role="tab" aria-controls="tab01-pane" aria-selected="true">설비</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="tab02" data-bs-toggle="tab" data-bs-target="#tab02-pane" type="button"
+								role="tab" aria-controls="tab02-pane" aria-selected="false">정비이력</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="tab03" data-bs-toggle="tab" data-bs-target="#tab03-pane" type="button"
+								role="tab" aria-controls="tab03-pane" aria-selected="false">고장이력</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="tab04" data-bs-toggle="tab" data-bs-target="#tab04-pane" type="button"
+								role="tab" aria-controls="tab04-pane" aria-selected="false">자재</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="tab03" data-bs-toggle="tab" data-bs-target="#tab05-pane" type="button"
+								role="tab" aria-controls="tab05-pane" aria-selected="false">TM 발행</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="tab03" data-bs-toggle="tab" data-bs-target="#tab06-pane" type="button"
+								role="tab" aria-controls="tab06-pane" aria-selected="false">운전정보</button>
+						</li>
+						<!-- 
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane"
+								type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" disabled>Disabled</button>
+						</li>
+						 -->
+					</ul>
+
+					<!-- tab content -->
+					<div class="tab-content" id="facTabContent">
+						<div class="tab-pane fade show active" id="tab01-pane" role="tabpanel" aria-labelledby="tab01" tabindex="0">
+							<!-- data table -->
+							<h3 class="box-title02">설비정보<small>(전체 10건)</small></h3>
+
+							<div class="table-box table-sm">
+								<table class="table">
+									<thead class="table-light">
+										<tr>
+											<th scope="col">설비번호</th>
+											<th scope="col">설비명</th>
+											<th scope="col">기능위치번호</th>
+											<th scope="col">계통코드</th>
+											<th scope="col">종류코드</th>
+											<th scope="col">상태</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">12340001</th>
+											<td>CWP Screen Wash PP-A</td>
+											<td>54321-12345</td>
+											<td>01285</td>
+											<td>BVF02</td>
+											<td>운전</td>
+										</tr>
+										<tr>
+											<th scope="row">12340001</th>
+											<td>CWP Screen Wash PP-A</td>
+											<td>54321-12345</td>
+											<td>01285</td>
+											<td>BVF02</td>
+											<td>운전</td>
+										</tr>
+										<tr>
+											<th scope="row">12340001</th>
+											<td>CWP Screen Wash PP-A</td>
+											<td>54321-12345</td>
+											<td>01285</td>
+											<td>BVF02</td>
+											<td>운전</td>
+										</tr>
+										<tr>
+											<th scope="row">12340001</th>
+											<td>CWP Screen Wash PP-A</td>
+											<td>54321-12345</td>
+											<td>01285</td>
+											<td>BVF02</td>
+											<td>운전</td>
+										</tr>
+										<tr>
+											<th scope="row">12340001</th>
+											<td>CWP Screen Wash PP-A</td>
+											<td>54321-12345</td>
+											<td>01285</td>
+											<td>BVF02</td>
+											<td>운전</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+
+						</div>
+						<div class="tab-pane fade" id="tab02-pane" role="tabpanel" aria-labelledby="tab02" tabindex="0">
+							<p>준비중입니다.</p>
+						</div>
+						<div class="tab-pane fade" id="tab03-pane" role="tabpanel" aria-labelledby="tab03" tabindex="0">
+							<p>준비중입니다.</p>
+						</div>
+						<div class="tab-pane fade" id="tab04-pane" role="tabpanel" aria-labelledby="tab04" tabindex="0">
+							<p>준비중입니다.</p>
+						</div>
+						<div class="tab-pane fade" id="tab05-pane" role="tabpanel" aria-labelledby="tab04" tabindex="0">
+							<p>준비중입니다.</p>
+						</div>
+						<div class="tab-pane fade" id="tab05-pane" role="tabpanel" aria-labelledby="tab05" tabindex="0">
+							<p>준비중입니다.</p>
+						</div>
+						<div class="tab-pane fade" id="tab06-pane" role="tabpanel" aria-labelledby="tab06" tabindex="0">
+							<p>준비중입니다.</p>
+						</div>
+						<!-- 
+						<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+							<p>준비중입니다.</p>
+						</div> -->
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- 
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary">Save changes</button>
+</div>
+-->
+
+<script>
+
+	$(document).ready(function () {
+
+		let isCollapsed = true; // 초기 상태를 '닫힘'으로 설정
+		$('.modal-facility').find('.material-symbols-outlined').css('transform', 'scaleX(-1)');
+
+		$('#toggleSidePanel').on('click', function () {
+			if (isCollapsed) { 
+				// 열림
+				$('.modal').removeClass('modal-move').removeClass('folded').css('left', '').css('top', '');
+				$('.contents-panel').addClass('expanded'); // 너비를 80픽셀로 줄임
+				$(this).attr('title', '패널 닫기'); // 타이틀 변경
+				$(this).find('.material-symbols-outlined').css('transform', 'scaleX(1)');
+			} else { 
+				// 닫힘
+				$('.modal').addClass('modal-move').addClass('folded');
+				$('.contents-panel').removeClass('expanded'); // 기본 너비로 복원
+				$(this).attr('title', '패널 열기'); // 타이틀 변경
+				$(this).find('.material-symbols-outlined').css('transform', 'scaleX(-1)');
+			}
+			isCollapsed = !isCollapsed; // 상태 토글
+		});
+		
+		$('.modal').addClass('folded');
+
+		// Function to initialize jstree
+		initializeJSTree();
+
+		// 3.3.15 버전
+		function initializeJSTree() {
+			// Define jsTree data
+			const treeData = [
+				{ "id": "node1", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1'>visibility</span> <span class='fac-name'>SSWP-B</span></div>" },
+				{ "id": "node2", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node2'>visibility</span> <span class='fac-name'>CTCS-A BALL RECIRCULATION PUMP</span></div>" },
+				{ "id": "node3", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node3'>visibility</span> <span class='fac-name'>#1 GT LOWS</span></div>" },
+				{ "id": "node4", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node4'>visibility</span> <span class='fac-name'>CCW HE-B</span></div>" },
+				{ "id": "node5", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node5'>visibility</span> <span class='fac-name'>SLP Travelling Screen-B</span></div>" },
+				{ "id": "node6", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node6'>visibility</span> <span class='fac-name'>CCW PP-B</span></div>" },
+				{ "id": "node7", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node7'>visibility</span> <span class='fac-name'>SLP-A MTR</span></div>" },
+				{ "id": "node8", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node8'>visibility</span> <span class='fac-name'>CWP-A MTR CLG WTR Line FT-001</span></div>" },
+				{ "id": "node9", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node9'>visibility</span> <span class='fac-name'>CCP DISCH Seal WTR Line Safety Valve</span></div>" },
+				{ "id": "node10", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node10'>visibility</span> <span class='fac-name'>CTCS Line</span></div>" },
+				{ "id": "node11", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node11'>visibility</span> <span class='fac-name'>Sampling PP-C</span></div>" },
+				{ "id": "node12", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node12'>visibility</span> <span class='fac-name'>RECIRCULATION CTCS-A BALL</span></div>" },
+				{ "id": "node13", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node13'>visibility</span> <span class='fac-name'>SLP Travelling</span></div>" },
+				{ "id": "node14", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node14'>visibility</span> <span class='fac-name'>CCW HE-B</span></div>" },
+				{ "id": "node15", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node15'>visibility</span> <span class='fac-name'>WTR Line FT-001</span></div>" },
+				{ "id": "node16", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node16'>visibility</span> <span class='fac-name'>SSWP-BOPSWP-B</span></div>" },
+				{ "id": "node17", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node17'>visibility</span> <span class='fac-name'>CTCS-A BALL RECIRCULATION PUMP</span></div>" },
+				{ "id": "node18", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node18'>visibility</span> <span class='fac-name'>DISCH Seal WTR Line Safety Valve</span></div>" },
+				{ "id": "node19", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node19'>visibility</span> <span class='fac-name'>CWP-A MTR CLG WTR Line FT-001</span></div>" },
+				{ "id": "node20", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node20'>visibility</span> <span class='fac-name'>Sampling PP-C</span></div>" },
+				{ "id": "node21", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node21'>visibility</span> <span class='fac-name'>CCW HE-B</span></div>" },
+				{ "id": "node22", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node22'>visibility</span> <span class='fac-name'>MTR CLG WTR Line</span></div>" },
+				{ "id": "node23", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node23'>visibility</span> <span class='fac-name'>CCP DISCH Seal WTR Line Safety Valve</span></div>" },
+				{ "id": "node24", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node24'>visibility</span> <span class='fac-name'>BALL RECIRCULATION</span></div>" },
+
+				// Nested nodes
+				{ "id": "node1-1", "parent": "node1", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1-1'>visibility</span> <span class='fac-name'>MTR CLG WTR Line</span></div>" },
+				{ "id": "node1-1-1", "parent": "node1-1", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1-1-1'>visibility</span> <span class='fac-name'>DISCH Seal WTR Line Safety Valve</span></div>" },
+				{ "id": "node1-1-1-1", "parent": "node1-1-1", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1-1-1-1'>visibility</span> <span class='fac-name'>CTCS-A BALL RECIRCULATION PUMP</span></div>" },
+
+				// More nested nodes
+				{ "id": "node1-1-1-1-1", "parent": "node1-1-1-1", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1-1-1-1-1'>visibility</span> <span class='fac-name'>CWP-A MTR CLG WTR Line FT-9005</span></div>" },
+				{ "id": "node1-1-1-1-2", "parent": "node1-1-1-1", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1-1-1-1-2'>visibility</span> <span class='fac-name'>CWP-B MTR CLG WTR Line FT-9006</span></div>" },
+			];
+
+			// Initialize jstree with the data
+			$('#jstree').jstree({
+				'core': {
+					'data': treeData
+				},
+				'state': {
+					'key': 'jstree'
+				},
+				'types': {
+					'default': {
+						'icon': false // 아이콘 숨기기
+					},
+					'folder': {
+						'icon': false // 폴더 아이콘 숨기기
+					}
+				},
+				'plugins': ["types", "search"]
+			});	
+
+			// 노드 텍스트 클릭 이벤트 (우측 패널 업데이트)
+			$('#jstree').on("select_node.jstree", function (e, data) {
+				var fullNodeText = data.node.text;
+
+				var tempElement = $('<div>').html(fullNodeText);
+
+				// Find the <span> element with class 'fac-name' and get its text
+				var partialText = tempElement.find('span.fac-name').text();
+
+				// Check if partialText is empty, handle accordingly
+				if (!partialText) {
+					partialText = "좌측 패널에서 설비명을 검색해 주세요."; // Fallback if no matching element is found
+				}
+
+				$('#content-display h2.box-title01').text(partialText);
+			});
+
+			// Eye icon click event
+			$('#jstree').on("click", ".eye-icon", function (e) {
+				e.stopPropagation(); // 클릭 이벤트가 부모 노드로 전파되지 않도록 방지
+
+				const $icon = $(this);
+				const nodeId = $icon.data('node');
+
+				// 아이콘 상태 토글
+				if ($icon.text() === 'visibility') {
+					$icon.text('visibility_off'); // 눈 감기 아이콘
+					console.log(`아이콘 비활성화: ${nodeId}`);
+				} else {
+					$icon.text('visibility'); // 눈 뜨기 아이콘
+					console.log(`아이콘 활성화: ${nodeId}`);
+				}
+			});
+
+			// **Search functionality**
+			$('#search-input').on('keyup', function() {
+				var searchString = $(this).val();
+				$('#jstree').jstree('search', searchString);
+			});
+		}
+
+	});
+
+</script>

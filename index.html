@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>서부발전 iPOS 샘플</title>
+
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- jstree -->
+		<link rel="stylesheet" href="./js/jsTree/css/style.min.css">
+
+		<!-- material icon -->
+		<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
+		 <link rel="stylesheet" href="./fonts/Material_Icons/Material_Symbols_Outlined.css">
+
+		<!-- WP stylesheet -->
+		<link rel="stylesheet" href="./css/common.css">
+
+		<!-- 부트스트랩 -->
+		<script src="./js/jquery-3.6.1.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script> -->
+		<script src="./css/bootstrap-5.3.2/dist/js/bootstrap.bundle.js"></script>
+		<script src="./js/jsTree/js/jstree.min.js"></script>
+		
+		<script src="./js/common.js" defer></script>
+
+		<!-- 유니티 -->
+		 <!-- 
+		<link rel="stylesheet" href="./TemplateData/style.css">
+		<link rel="manifest" href="./manifest.webmanifest">
+ -->
+	</head>
+	<body class="main">
+		<div id="header" class="header">
+			<div class="inner-box">
+				<a href="#" class="logo"><span class="visually-hidden-focusable">서부발전 i-POS 지능형 발전 운영시스템</span></a>
+			</div>
+			<div class="inner-box">
+				<div class="info-box air">
+					<ul>
+						<li class="icon01">
+							<p>기온</p>
+							<strong>30.5<small>°C</small></strong>
+						</li>
+						<li class="icon02">
+							<p>압력</p>
+							<strong>1,005.8<small>mbara</small></strong>
+						</li>
+						<li class="icon03">
+							<p>습도</p>
+							<strong>72.25<small>%</small></strong>
+						</li>
+					</ul>
+				</div>
+				<div class="info-box runtime">
+					<h3 class="title">운전시간<small>(H)</small></h3>
+					<ul>
+						<li>
+							<span>GT1 AOH</span>
+							<strong>2,125</strong>
+						</li>
+						<li>
+							<span>GT1 ES</span>
+							<strong>29</strong>
+						</li>
+						<li>
+							<span>GT2 AOH</span>
+							<strong>2,140</strong>
+						</li>
+						<li>
+							<span>GT2 ES</span>
+							<strong>36</strong>
+						</li>
+					</ul>
+				</div>
+				<div class="info-box output">
+					<h3 class="title">발전기 출력<small>(MWh)</small></h3>
+					<ul>
+						<li>
+							<span>GT1</span>
+							<strong>4,882</strong>
+						</li>
+						<li>
+							<span>GT2</span>
+							<strong>4,963</strong>
+						</li>
+						<li>
+							<span>ST</span>
+							<strong>5,186</strong>
+						</li>
+						<li>
+							<span>CC</span>
+							<strong>15,032</strong>
+						</li>
+					</ul>
+				</div>
+				<div class="info-box efficiency">
+					<h3 class="title">발전효율<small>(%)</small></h3>
+					<ul>
+						<li class="icon01">
+							<span>실시간</span>
+							<strong>4,882</strong>
+						</li>
+						<li class="icon02">
+							<span>전일누적</span>
+							<strong>4,963</strong>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="gnb" class="gnb">
+			<button id="toggle-button" class="toggle-button" type="button" aria-expanded="false" aria-controls="side-menu">
+				<span id="toggle-text" class="visually-hidden-focusable">열기</span>
+				<span id="toggle-icon" class="material-symbols-outlined">
+					chevron_right
+				</span>
+			</button>
+			
+			<nav id="side-menu" class="closed" aria-hidden="true">
+				<ul>
+					<li class="menu-item"><a href="#" class="menu-link" data-bs-toggle="modal" data-bs-target="#externalModal" data-url="modal-01.html"><span>설비정보</span></a></li>
+					<li class="menu-item"><a href="#" class="menu-link" data-bs-toggle="modal" data-bs-target="#externalModal" data-url="modal-02.html"><span>TM 현황</span></a></li>
+					<li class="menu-item"><a href="#" class="menu-link"><span>작업현황</span> <small>Red TAG</small></a></li>
+					<li class="menu-item"><a href="#" class="menu-link"><span>예방점검현황</span></a></li>
+					<li class="menu-item"><a href="#" class="menu-link"><span>APC</span></a></li>
+					<li class="menu-item"><a href="#" class="menu-link" data-bs-toggle="modal" data-bs-target="#externalModal" data-url="modal-06.html"><span>대시보드</span></a></li>
+					<li class="menu-item"><a href="#" class="menu-link"><span>i-PLIS</span></a></li>
+					<li class="menu-item"><a href="#" class="menu-link"><span>CCTV</span></a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div id="rightPanel" class="right-panel">
+			<div class="apc">
+				<p class="title">APC 인원현황</p>
+				<ul>
+					<!-- 입이 출보다 큰 경우, class 추가 : [danger] -->
+					<li class="danger">
+						<span>입</span>
+						<strong>3</strong>
+						<em><span class="visually-hidden">알림</span></em>
+					</li>
+					<li>
+						<span>출</span>
+						<strong>2</strong>
+					</li>
+				</ul>
+			</div>
+			<div class="today">
+				<p class="title">TODAY</p>
+				<div>
+					<span class="date">2024/10/25</span>
+					<span class="day">화</span>
+					<span class="time">10:40</span>
+				</div>
+			</div>
+		</div>
+
+		<div id="container" class="unity-box">
+			<!-- unity viewer start -->
+			<!-- <div id="unity-container" class="model-box">
+				<canvas id="unity-canvas"></canvas>
+				<div id="unity-loading-bar">
+					<div id="unity-logo"></div>
+					<div id="unity-progress-bar-empty">
+					<div id="unity-progress-bar-full"></div>
+					</div>
+				</div>
+				<div id="unity-warning"> </div>
+			</div> -->
+			<!-- unity viewer end -->
+		</div>
+	
+		<!-- 
+		<script>
+			window.addEventListener("load", function () {
+			if ("serviceWorker" in navigator) {
+				navigator.serviceWorker.register("./ServiceWorker.js");
+			}
+			});
+	
+			var container = document.querySelector("#unity-container");
+			var canvas = document.querySelector("#unity-canvas");
+			var loadingBar = document.querySelector("#unity-loading-bar");
+			var progressBarFull = document.querySelector("#unity-progress-bar-full");
+			var warningBanner = document.querySelector("#unity-warning");
+	
+			// Shows a temporary message banner/ribbon for a few seconds, or
+			// a permanent error message on top of the canvas if type=='error'.
+			// If type=='warning', a yellow highlight color is used.
+			// Modify or remove this function to customize the visually presented
+			// way that non-critical warnings and error messages are presented to the
+			// user. 
+			function unityShowBanner(msg, type) {
+			function updateBannerVisibility() {
+				warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+			}
+			var div = document.createElement('div');
+			div.innerHTML = msg;
+			warningBanner.appendChild(div);
+			if (type == 'error') div.style = 'background: red; padding: 10px;';
+			else {
+				if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+				setTimeout(function() {
+				warningBanner.removeChild(div);
+				updateBannerVisibility();
+				}, 5000);
+			}
+			updateBannerVisibility(); 
+			}
+	
+			var buildUrl = "./Build";
+			var loaderUrl = buildUrl + "/NDE3DMapView.loader.js";
+			var config = {
+			dataUrl: buildUrl + "/NDE3DMapView.data.unityweb",
+			frameworkUrl: buildUrl + "/NDE3DMapView.framework.js.unityweb",
+			codeUrl: buildUrl + "/NDE3DMapView.wasm.unityweb",
+			streamingAssetsUrl: "StreamingAssets",
+			companyName: "DOOSAN",
+			productName: "NDE3DMapView",
+			productVersion: "0.1",
+			showBanner: unityShowBanner,
+			};
+	
+			// By default Unity keeps WebGL canvas render target size matched with
+			// the DOM size of the canvas element (scaled by window.devicePixelRatio)
+			// Set this to false if you want to decouple this synchronization from
+			// happening inside the engine, and you would instead like to size up
+			// the canvas DOM size and WebGL render target sizes yourself.
+			// config.matchWebGLToCanvasSize = false;
+	
+			if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+			// Mobile device style: fill the whole browser client area with the game canvas:
+			var meta = document.createElement('meta');
+			meta.name = 'viewport';
+			meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+			document.getElementsByTagName('head')[0].appendChild(meta);
+			}
+	
+			loadingBar.style.display = "block";
+	
+			var unityObj;
+			var script = document.createElement("script");
+			script.src = loaderUrl;
+			console.log("loaderUrl: " + loaderUrl);
+			script.onload = () => {
+			createUnityInstance(canvas, config, (progress) => {
+				progressBarFull.style.width = 100 * progress + "%";
+			}).then((unityInstance) =>
+			{
+				unityObj = unityInstance;
+				loadingBar.style.display = "none";
+			}).catch((message) => {
+				alert(message);
+			});
+			};
+			document.body.appendChild(script);
+		</script>
+
+		<script src="./public/js/app.js" defer></script> -->
+
+		<!-- Modal -->
+		<div class="modal fade" id="externalModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal-content" id="modal-content">
+					<!-- 외부 모달 내용을 여기에 로드 -->
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

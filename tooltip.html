@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Toggle Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        #sidePanel {
+            transition: width 0.3s; /* 너비 변화에 애니메이션 추가 */
+            width: 360px; /* 초기 너비 설정 */
+        }
+
+        #contentsPanel {
+            transition: flex 0.3s; /* 확장에 애니메이션 추가 */
+            flex: 1; /* 초기 flex 설정 */
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+    <div class="row g-0 h-100">
+        <div class="col p-3 h-100 bg-light border-end" id="sidePanel">
+            <div class="row g-2 mb-3 fac-search">
+                <div class="col">
+                    <label for="FacilityDataList" class="form-label visually-hidden">설비명 입력</label>
+                    <input class="form-control" list="datalistOptions" id="FacilityDataList" placeholder="설비명 입력">
+                    <datalist id="datalistOptions">
+                        <option value="Turbine 1">
+                        <option value="Steam Turbine 5">
+                        <option value="Gas Turbine 2">
+                        <option value="HRSG 1">
+                        <option value="ACC">
+                    </datalist>
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn btn-primary" id="toggleSidePanel" data-bs-toggle="tooltip" data-bs-placement="top" title="트리메뉴 닫기">
+                        <span class="material-icons">
+                            menu_open
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="jstree" class="js-tree border bg-white rounded d-flex"></div>
+        </div>
+
+        <div class="col p-3 bg-dark" id="contentsPanel">
+			dsfjklfjlkdsfd
+			fsdf
+			dsfjklfjlkdsfdsf
+            <div id="node-content">
+                <div id="content-display">
+                    <h2 class="box-title01"></h2>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // 트리메뉴 툴팁 초기화
+            var tooltipTriggerEl = document.getElementById('toggleSidePanel');
+            if (tooltipTriggerEl) {
+                var tooltip = new bootstrap.Tooltip(tooltipTriggerEl);
+            }
+
+            // 상태 변수
+            let isCollapsed = false;
+
+            $('#toggleSidePanel').on('click', function() {
+                if (isCollapsed) {
+                    // 사이드 패널을 기본 너비로 복원
+                    $('#sidePanel').css('width', '250px');
+                    $('#contentsPanel').css('flex', '1'); // 기본 flex로 복원
+                    $(this).attr('title', '트리메뉴 닫기'); // 타이틀 변경
+                    $(this).find('.material-icons').text('menu_open'); // 아이콘 변경
+                } else {
+                    // 사이드 패널의 너비를 80픽셀로 줄임
+                    $('#sidePanel').css('width', '80px');
+                    $('#contentsPanel').css('flex', ''); // contentsPanel의 너비 확장
+                    $(this).attr('title', '트리메뉴 열기'); // 타이틀 변경
+                    $(this).find('.material-icons').text('menu'); // 아이콘 변경
+                }
+                isCollapsed = !isCollapsed; // 상태 토글
+            });
+        });
+    </script>
+</body>
+</html>

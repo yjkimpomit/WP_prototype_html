@@ -1,0 +1,214 @@
+<div class="modal-header">
+	<h1 class="modal-title" id="modalLabel">대시보드</h1>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body p-0 modal-dashboard">
+	<div class="row g-0">
+		<div class="col-12 col-xxl">
+
+			<div class="p-5 pt-3">
+				<!-- 출력현황 -->
+				<h2 class="box-title01">출력현황</h2>
+				<div class="border rounded-1 p-4 mb-3">
+					<div class="row">
+						<div class="col-12 col-md-4">
+							<div class="plant">
+								<p class="title">발전기</p>
+								<div class="row g-1">
+									<div class="col-12 col-md-6">
+										<span>출력</span>
+										<strong class="value">804 <small>HW</small></strong>
+									</div>
+									<div class="col-12 col-md-6">
+										<span>전압</span>
+										<strong class="value">28.4 <small>KV</small></strong>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="steam">
+								<p class="title">수증기</p>
+								<div class="row g-1">
+									<div class="col-12 col-md-6">
+										<span>온도</span>
+										<strong class="value">522 <small>°C</small></strong>
+									</div>
+									<div class="col-12 col-md-6">
+										<span>압력</span>
+										<strong class="value">24 <small>MPa</small></strong>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-md-4">
+							<div class="reheat">
+								<p class="title">재열증기</p>
+								<div class="row g-1">
+									<div class="col-12 col-md-6">
+										<span>온도</span>
+										<strong class="value">596 <small>°C</small></strong>
+									</div>
+									<div class="col-12 col-md-6">
+										<span>압력</span>
+										<strong class="value">20 <small>MPa</small></strong>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row g-3 mb-4">
+					<div class="col-12 col-xxl-4">
+						<div class="border rounded-1 p-3 py-4">
+							<div class="chart gt">
+								<img src="./images/chart-gt.svg" class="img-fluid" alt="GT">
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-xxl-4">
+						<div class="border rounded-1 p-3 py-4">
+							<div class="chart st">
+								<img src="./images/chart-st.svg" class="img-fluid" alt="ST">
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-xxl-4">
+						<div class="border rounded-1 p-3 py-4">
+							<div class="chart hrsg">
+								<img src="./images/chart-hrsg.svg" class="img-fluid" alt="HRSG">
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<h2 class="box-title01">출입인원 현황</h2>
+				<div class="row g-3">
+					<!-- 입 > 출보다 큰 경우, div.col-lg 라인에 warning 클래스 추가 -->
+					<div class="col-6 col-xxl-3">
+						<div class="apc-inlet">
+							<p class="title">WTR-Box Inlet</p>
+							<ul>
+								<li class="in">
+									<strong>6</strong>
+									<span>입</span>
+								</li>
+								<li class="out">
+									<strong>6</strong>
+									<span>출</span>
+								</li>
+							</ul>
+							<div class="total">
+								<strong>0</strong>
+								<span>잔여인원</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-xxl-3">
+						<div class="apc-outlet warning">
+							<p class="title">WTR-Box Outlet</p>
+							<ul>
+								<li class="in">
+									<strong>24</strong>
+									<span>입</span>
+								</li>
+								<li class="out">
+									<strong>16</strong>
+									<span>출</span>
+								</li>
+							</ul>
+							<div class="total">
+								<strong>8</strong>
+								<span>잔여인원</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-xxl-3">
+						<div class="apc-debris">
+							<p class="title">Debris Filter Manhole</p>
+							<ul>
+								<li class="in">
+									<strong>0</strong>
+									<span>입</span>
+								</li>
+								<li class="out">
+									<strong>0</strong>
+									<span>출</span>
+								</li>
+							</ul>
+							<div class="total">
+								<strong>0</strong>
+								<span>잔여인원</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-xxl-3">
+						<div class="apc-ctcs warning">
+							<p class="title">CTCS Ball Collector Manhole</p>
+							<ul>
+								<li class="in">
+									<strong>26</strong>
+									<span>입</span>
+								</li>
+								<li class="out">
+									<strong>14</strong>
+									<span>출</span>
+								</li>
+							</ul>
+							<div class="total">
+								<strong>26</strong>
+								<span>잔여인원</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-12 col-xxl-3 bg-light border-left border-light" style="max-width: 360px;">
+
+			<div class="p-5 pt-3">
+				<h2 class="box-title01">대기정보</h2>
+				<div class="env-item mt-4">
+					<span class="env-title">MEGAWATT</span>
+					<strong class="env-value">834.48 <small>MW</small></strong>
+				</div>
+
+				<div class="env-list my-4">
+					<!-- <div class="bg-white border rounded-1 py-3 mb-2">
+						<span class="env-title line-bar line-after line-H16">NOx</span>
+						<span class="env-value">
+							14.52
+							<small>PPM</small>
+						</span>
+					</div> -->
+					<div class="mb-2">
+						<img src="./images/env-item01.svg" alt="NOx - 14.52PPM">
+					</div>
+					<div class="mb-2">
+						<img src="./images/env-item02.svg" alt="산소 - 4.5%">
+					</div>
+					<div class="mb-2">
+						<img src="./images/env-item03.svg" alt="온도 - 97.07°C">
+					</div>
+					<div class="mb-2">
+						<img src="./images/env-item04.svg" alt="Sax - 4.5PPM">
+					</div>
+					<div class="mb-2">
+						<img src="./images/env-item05.svg" alt="DUST - 4.5sm²/sm">
+					</div>
+					<div class="mb-2">
+						<img src="./images/env-item06.svg" alt="유량 - 267.58sm²/sm">
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- <div class="modal-footer">
+	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	<button type="button" class="btn btn-primary">저장</button>
+</div> -->
