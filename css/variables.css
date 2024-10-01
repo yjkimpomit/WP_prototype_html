@@ -244,7 +244,7 @@
 	--gnb-width-negative: -180px;
 
 	--wp-modal-width: 1600px;
-	--wp-modal-folded: 360px;
+	--wp-modal-width-folded: 360px;
 
 	--wp-mordal-split-padding: 2.5rem;
 
@@ -253,5 +253,6 @@
 
 	/* nav-link */
 	--bs-nav-link-padding-y: .25rem;
+	--bs-nav-tabs-link-active-bg: #0476cd;
 	
 }

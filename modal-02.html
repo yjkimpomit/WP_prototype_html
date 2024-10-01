@@ -1,0 +1,382 @@
+<div class="modal-header">
+	<h1 class="modal-title" id="modalLabel">TM 현황</h1>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+	<div class="modal-tm">
+
+		<!-- tab-menu -->
+		<ul class="nav nav-tabs" id="tmTab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="tab01" data-bs-toggle="tab" data-bs-target="#tab01-pane"
+					type="button" role="tab" aria-controls="tab01-pane" aria-selected="true">작업요청확정</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="tab02" data-bs-toggle="tab" data-bs-target="#tab02-pane" type="button"
+					role="tab" aria-controls="tab02-pane" aria-selected="false">다발 TM현황</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="tab03" data-bs-toggle="tab" data-bs-target="#tab03-pane" type="button"
+					role="tab" aria-controls="tab03-pane" aria-selected="false">미결 TM현황</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="tab04" data-bs-toggle="tab" data-bs-target="#tab04-pane" type="button"
+					role="tab" aria-controls="tab04-pane" aria-selected="false">작업요청 건수</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="tab05" data-bs-toggle="tab" data-bs-target="#tab05-pane" type="button"
+					role="tab" aria-controls="tab05-pane" aria-selected="false">작업요청 처리현황</button>
+			</li>
+		</ul>
+
+		<!-- tab content -->
+		<div class="tab-content" id="tmTabContent">
+			<div class="tab-pane fade show active" id="tab01-pane" role="tabpanel" aria-labelledby="tab01" tabindex="0">
+
+				<!-- 검색영역 -->
+				<div class="search-box bg-light p-4 px-5 rounded border mb-3">
+					<div class="row align-items-center justify-content-center mx-auto">
+						<div class="col-auto">
+							기간 선택
+						</div>
+						<div class="col-auto">
+							<label for="startDate" class="visually-hidden">시작일</label>
+							<div class="input-group">
+								<input type="date" class="form-control border-end-0" id="startDate" aria-label="시작일 선택">
+								<span class="input-group-text border border-start-0">
+									<span class="material-symbols-outlined">
+										date_range
+									</span>
+								</span>
+							</div>
+						</div>
+						<div class="col-auto">
+							~
+						</div>
+						<div class="col-auto">
+							<label for="endDate" class="visually-hidden">종료일</label>
+							<div class="input-group">
+								<input type="date" class="form-control border-end-0" id="endDate" aria-label="종료일 선택">
+								<span class="input-group-text border border-start-0">
+									<span class="material-symbols-outlined">
+										date_range
+									</span>
+								</span>
+							</div>
+						</div>
+						<div class="col-auto">
+							<button type="button" class="btn btn-primary">
+								<span class="material-symbols-outlined me-2">
+									search
+								</span> 검색
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- data table -->
+				<h3 class="box-title02">조회결과<small>(전체 1,280건)</small></h3>
+
+				<!-- sortable-data-grid -->
+				<div class="table-responsive" style="max-height: 464px;">
+					<table class="table" id="example">
+						<thead>
+							<tr>
+								<th scope="col" class="text-center">첨부</th>
+								<th scope="col" class="text-center">요청유형</th>
+								<th scope="col" class="text-center">승인일자</th>
+								<th scope="col" class="text-center">진행상태</th>
+								<th scope="col" class="text-center">요청번호</th>
+								<th scope="col" class="text-center">요청명</th>
+								<th scope="col" class="text-center">요청자</th>
+								<th scope="col" class="text-center">요청부서</th>
+								<th scope="col" class="text-center">감독부서</th>
+								<th scope="col" class="text-center">작업중요도</th>
+								<th scope="col" class="text-center">우선순위</th>
+								<th scope="col" class="text-center">Red TAG 필요</th>
+								<th scope="col" class="text-center">증상</th>
+								<th scope="col" class="text-center">최근1년간 동일증상</th>
+								<th scope="col" class="text-center">설비번호</th>
+								<th scope="col" class="text-center">설비명</th>
+							</tr>
+						</thead>
+						<tbody id="tableBody">
+
+							<tr>
+								<th scope="row" class="text-center">
+									<span class="material-symbols-outlined">
+										attachment
+									</span>
+								</th>
+								<td class="text-center">TM</td>
+								<td class="text-center">2024-11-20</td>
+								<td class="text-center">확정완료</td>
+								<td class="text-center">123456</td>
+								<td class="text-left">CTCS#A,B 볼 회수율 불량</td>
+								<td class="text-left">홍길동</td>
+								<td class="text-left">복합발전운영본부</td>
+								<td class="text-left">복기ST과</td>
+								<td class="text-center">B등급(일반)</td>
+								<td class="text-center">일상</td>
+								<td class="text-center">0</td>
+								<td class="text-center">누설(Leakage)</td>
+								<td class="text-center">0</td>
+								<td class="text-center">12345678</td>
+								<td class="text-center">CTCS Line</td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-center">
+									<span class="material-symbols-outlined">
+										attachment
+									</span>
+								</th>
+								<td class="text-center">TM</td>
+								<td class="text-center">2024-11-20</td>
+								<td class="text-center">확정완료</td>
+								<td class="text-center">458752</td>
+								<td class="text-left">2복합 SLP Screen Wash WTR PP #B Gland 누수</td>
+								<td class="text-left">홍길동</td>
+								<td class="text-left">복합발전운영본부</td>
+								<td class="text-left">복기ST과</td>
+								<td class="text-center">A등급(중요)</td>
+								<td class="text-center">일상</td>
+								<td class="text-center">0</td>
+								<td class="text-center">누설(Leakage)</td>
+								<td class="text-center">0</td>
+								<td class="text-center">12345678</td>
+								<td class="text-center">CTCS Line</td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-center">
+									<span class="material-symbols-outlined">
+										attachment
+									</span>
+								</th>
+								<td class="text-center">TM</td>
+								<td class="text-center">2024-11-20</td>
+								<td class="text-center">확정완료</td>
+								<td class="text-center">123456</td>
+								<td class="text-left">CTCS#A,B 볼 회수율 불량</td>
+								<td class="text-left">홍길동</td>
+								<td class="text-left">복합발전운영본부</td>
+								<td class="text-left">복기ST과</td>
+								<td class="text-center">B등급(일반)</td>
+								<td class="text-center">일상</td>
+								<td class="text-center">0</td>
+								<td class="text-center">누설(Leakage)</td>
+								<td class="text-center">0</td>
+								<td class="text-center">12345678</td>
+								<td class="text-center">CTCS Line</td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-center">
+									<span class="material-symbols-outlined">
+										attachment
+									</span>
+								</th>
+								<td class="text-center">TM</td>
+								<td class="text-center">2024-11-20</td>
+								<td class="text-center">확정완료</td>
+								<td class="text-center">258456</td>
+								<td class="text-left">2복합 SLP Screen Wash WTR PP #B Gland 누수</td>
+								<td class="text-left">홍길동</td>
+								<td class="text-left">복합발전운영본부</td>
+								<td class="text-left">복기ST과</td>
+								<td class="text-center">C등급(경미)</td>
+								<td class="text-center">일상</td>
+								<td class="text-center">0</td>
+								<td class="text-center">누설(Leakage)</td>
+								<td class="text-center">0</td>
+								<td class="text-center">12345678</td>
+								<td class="text-center">CTCS Line</td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-center">
+									<span class="material-symbols-outlined">
+										attachment
+									</span>
+								</th>
+								<td class="text-center">TM</td>
+								<td class="text-center">2024-11-20</td>
+								<td class="text-center">확정완료</td>
+								<td class="text-center">125</td>
+								<td class="text-left">2복합 SLP Screen Wash WTR PP #B Gland 누수</td>
+								<td class="text-left">홍길동</td>
+								<td class="text-left">복합발전운영본부</td>
+								<td class="text-left">복기ST과</td>
+								<td class="text-center">B등급(일반)</td>
+								<td class="text-center">일상</td>
+								<td class="text-center">0</td>
+								<td class="text-center">누설(Leakage)</td>
+								<td class="text-center">0</td>
+								<td class="text-center">12345678</td>
+								<td class="text-center">CTCS Line</td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-center">
+									<span class="material-symbols-outlined">
+										attachment
+									</span>
+								</th>
+								<td class="text-center">TM</td>
+								<td class="text-center">2024-11-20</td>
+								<td class="text-center">확정완료</td>
+								<td class="text-center">963521</td>
+								<td class="text-left">CTCS#A,B 볼 회수율 불량</td>
+								<td class="text-left">홍길동</td>
+								<td class="text-left">복합발전운영본부</td>
+								<td class="text-left">복기ST과</td>
+								<td class="text-center">B등급(일반)</td>
+								<td class="text-center">일상</td>
+								<td class="text-center">0</td>
+								<td class="text-center">누설(Leakage)</td>
+								<td class="text-center">0</td>
+								<td class="text-center">12345678</td>
+								<td class="text-center">CTCS Line</td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-center">
+									<span class="material-symbols-outlined">
+										attachment
+									</span>
+								</th>
+								<td class="text-center">TM</td>
+								<td class="text-center">2024-11-20</td>
+								<td class="text-center">확정완료</td>
+								<td class="text-center">785462</td>
+								<td class="text-left">2복합 SLP Screen Wash WTR PP #B Gland 누수</td>
+								<td class="text-left">홍길동</td>
+								<td class="text-left">복합발전운영본부</td>
+								<td class="text-left">복기ST과</td>
+								<td class="text-center">B등급(일반)</td>
+								<td class="text-center">일상</td>
+								<td class="text-center">0</td>
+								<td class="text-center">누설(Leakage)</td>
+								<td class="text-center">0</td>
+								<td class="text-center">12345678</td>
+								<td class="text-center">CTCS Line</td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-center">
+									<span class="material-symbols-outlined">
+										attachment
+									</span>
+								</th>
+								<td class="text-center">TM</td>
+								<td class="text-center">2024-11-20</td>
+								<td class="text-center">확정완료</td>
+								<td class="text-center">123456</td>
+								<td class="text-left">CTCS#A,B 볼 회수율 불량</td>
+								<td class="text-left">홍길동</td>
+								<td class="text-left">복합발전운영본부</td>
+								<td class="text-left">복기ST과</td>
+								<td class="text-center">B등급(일반)</td>
+								<td class="text-center">일상</td>
+								<td class="text-center">0</td>
+								<td class="text-center">누설(Leakage)</td>
+								<td class="text-center">0</td>
+								<td class="text-center">12345678</td>
+								<td class="text-center">CTCS Line</td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-center">
+									<span class="material-symbols-outlined">
+										attachment
+									</span>
+								</th>
+								<td class="text-center">TM</td>
+								<td class="text-center">2024-11-20</td>
+								<td class="text-center">확정완료</td>
+								<td class="text-center">852465</td>
+								<td class="text-left">CTCS#A,B 볼 회수율 불량</td>
+								<td class="text-left">홍길동</td>
+								<td class="text-left">복합발전운영본부</td>
+								<td class="text-left">복기ST과</td>
+								<td class="text-center">B등급(일반)</td>
+								<td class="text-center">일상</td>
+								<td class="text-center">0</td>
+								<td class="text-center">누설(Leakage)</td>
+								<td class="text-center">0</td>
+								<td class="text-center">12345678</td>
+								<td class="text-center">CTCS Line</td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-center">
+									<span class="material-symbols-outlined">
+										attachment
+									</span>
+								</th>
+								<td class="text-center">TM</td>
+								<td class="text-center">2024-11-20</td>
+								<td class="text-center">확정완료</td>
+								<td class="text-center">4585023</td>
+								<td class="text-left">CTCS#A,B 볼 회수율 불량</td>
+								<td class="text-left">홍길동</td>
+								<td class="text-left">복합발전운영본부</td>
+								<td class="text-left">복기ST과</td>
+								<td class="text-center">B등급(일반)</td>
+								<td class="text-center">일상</td>
+								<td class="text-center">0</td>
+								<td class="text-center">누설(Leakage)</td>
+								<td class="text-center">0</td>
+								<td class="text-center">12345678</td>
+								<td class="text-center">CTCS Line</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+			<div class="tab-pane fade" id="tab02-pane" role="tabpanel" aria-labelledby="tab02" tabindex="0">
+				<p>준비중입니다.</p>
+			</div>
+			<div class="tab-pane fade" id="tab03-pane" role="tabpanel" aria-labelledby="tab03" tabindex="0">
+				<p>준비중입니다.</p>
+			</div>
+			<div class="tab-pane fade" id="tab04-pane" role="tabpanel" aria-labelledby="tab04" tabindex="0">
+				<p>준비중입니다.</p>
+			</div>
+			<div class="tab-pane fade" id="tab05-pane" role="tabpanel" aria-labelledby="tab05" tabindex="0">
+				<p>준비중입니다.</p>
+			</div>
+		</div>
+
+
+	</div>
+
+</div>
+<!-- 
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary">Save changes</button>
+</div>
+-->
+
+<script>
+
+	$(document).ready(function () {
+
+		//data-grid
+		//$('#example').DataTable();
+
+	});
+
+</script>
+<!-- 
+<script>
+	$(document).ready(function () {
+		const numberOfRows = 10; // 원하는 갯수
+		const templateRow = $('#templateRow'); // 기존 행을 가져옵니다
+
+		// 기존 행을 복사하여 원하는 수만큼 추가합니다
+		for (let i = 1; i <= numberOfRows; i++) {
+			const newRow = templateRow.clone(); // 행 복사
+			newRow.find('.row-number').text(i); // 번호 업데이트
+			newRow.find('.row-name').text('이름 ' + i); // 이름 업데이트
+			newRow.find('.row-age').text(20 + i); // 나이 업데이트
+			$('#tableBody').append(newRow); // <tbody>에 추가
+		}
+
+		templateRow.remove(); // 원본 행 제거
+	});
+</script> -->

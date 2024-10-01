@@ -4,21 +4,32 @@
 .right-panel {
 	position: absolute;
 	top: var(--header-height);
-	right: 0;
+	left: calc(1920px - 200px - 2rem);
 	z-index: 100;
+	overflow: auto;
+	transition: right 0.3s;
+
+	padding: 1rem;
+}
+
+/* 1920px 초과 시 오른쪽 위치 조정 */
+@media (min-width: 1920px) {
+	.side-panel {
+		right: calc((100vw - 1920px) * -1); /* 1920px을 초과하는 만큼 왼쪽으로 이동 */
+	}
 }
 
 .right-panel .apc,
 .right-panel .today {
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
 	border-radius: 32px;
-	margin: 1rem;
 
 	background-color: var(--bg-default-default);
 	
 	overflow: hidden;
 
 	width: 200px;
+	margin-bottom: 1rem;
 }
 
 .right-panel .title {

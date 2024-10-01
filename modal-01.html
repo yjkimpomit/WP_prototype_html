@@ -1,15 +1,15 @@
 <div class="modal-header">
-	<h5 class="modal-title" id="modalLabel">설비정보</h5>
+	<h1 class="modal-title" id="modalLabel">설비정보</h1>
 	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body p-0">
 	<div class="modal-facility">
-		<button type="button" class="btn btn-primary toggle-side" id="toggleSidePanel" data-bs-toggle="tooltip" data-bs-placement="top" title="트리메뉴 열기">
+		<button type="button" class="btn btn-primary toggle-button" id="toggle-side" data-bs-toggle="tooltip" data-bs-placement="top" title="트리메뉴 열기">
 			<span class="material-symbols-outlined">
 			menu_open
 			</span>
 		</button>
-		<div class="side-panel left" id="sidePanel">
+		<div class="side-panel left" id="side-panel">
 
 			<!-- 검색영역 -->
 			<label for="search-input" class="form-label visually-hidden">설비명 입력</label>
@@ -25,7 +25,7 @@
 			<!-- 트리메뉴 -->
 			<div id="jstree" class="jstree-box border bg-white rounded d-flex"></div>
 		</div>
-		<div class="contents-panel" id="contentsPanel">
+		<div class="contents-panel" id="contents-panel">
 			
 			<div id="content-display">
 				
@@ -33,7 +33,7 @@
 				<div class="d-flex justify-content-between align-items-center">
 					<h2 class="box-title01">좌측 패널에서 설비명을 검색해 주세요.</h2>
 					<button type="button" class="btn btn-primary" onclick="showAlert();">
-						<span class="material-symbols-outlined">
+						<span class="material-symbols-outlined me-2">
 						view_in_ar
 						</span> 이동
 					</button>
@@ -81,64 +81,184 @@
 							<!-- data table -->
 							<h3 class="box-title02">설비정보<small>(전체 10건)</small></h3>
 
-							<div class="table-box table-sm">
+							<!-- fac list -->
+							<div class="table-wrapper">
+								<div class="table-header"></div>
+								<div class="table-body">
+									<table class="table has-data-id" id="mainTable">
+										<thead class="table-light">
+											<tr>
+												<th scope="col" class="text-center">설비번호</th>
+												<th scope="col" class="text-left">설비명</th>
+												<th scope="col" class="text-center">기능위치번호</th>
+												<th scope="col" class="text-center">계통코드</th>
+												<th scope="col" class="text-center">종류코드</th>
+												<th scope="col" class="text-center">상태</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr data-id="01">
+												<th class="text-center">12340001</th>
+												<td class="text-left">CWP Screen Wash PP-A</td>
+												<td class="text-center">54321-12345</td>
+												<td class="text-center">01285</td>
+												<td class="text-center">BVF02</td>
+												<td class="text-center">운전</td>
+											</tr>
+											<tr data-id="02">
+												<th class="text-center">12340001</th>
+												<td class="text-left">CWP Screen Wash PP-A</td>
+												<td class="text-center">54321-12345</td>
+												<td class="text-center">01285</td>
+												<td class="text-center">BVF02</td>
+												<td class="text-center">운전</td>
+											</tr>
+											<tr>
+												<th class="text-center">12340001</th>
+												<td class="text-left">CWP Screen Wash PP-A</td>
+												<td class="text-center">54321-12345</td>
+												<td class="text-center">01285</td>
+												<td class="text-center">BVF02</td>
+												<td class="text-center">운전</td>
+											</tr>
+											<tr>
+												<th class="text-center">12340001</th>
+												<td class="text-left">CWP Screen Wash PP-A</td>
+												<td class="text-center">54321-12345</td>
+												<td class="text-center">01285</td>
+												<td class="text-center">BVF02</td>
+												<td class="text-center">운전</td>
+											</tr>
+											<tr>
+												<th class="text-center">12340001</th>
+												<td class="text-left">CWP Screen Wash PP-A</td>
+												<td class="text-center">54321-12345</td>
+												<td class="text-center">01285</td>
+												<td class="text-center">BVF02</td>
+												<td class="text-center">운전</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<h4 class="box-title03">CWP Screen Wash PP-A 상세정보</h4>
+							<!-- info -->
+							<div class="data-table detail-table" id="detailTable01">
 								<table class="table">
-									<thead class="table-light">
-										<tr>
-											<th scope="col">설비번호</th>
-											<th scope="col">설비명</th>
-											<th scope="col">기능위치번호</th>
-											<th scope="col">계통코드</th>
-											<th scope="col">종류코드</th>
-											<th scope="col">상태</th>
-										</tr>
-									</thead>
+									<colgroup>
+										<col style="width: 160px;">
+										<col>
+										<col style="width: 160px;">
+										<col>
+										<col style="width: 160px;">
+										<col style="width: 120px;">
+									</colgroup>
 									<tbody>
 										<tr>
-											<th scope="row">12340001</th>
+											<th scope="row">설비번호</th>
+											<td>70340001</td>
+											<th scope="row">설비명</th>
 											<td>CWP Screen Wash PP-A</td>
-											<td>54321-12345</td>
-											<td>01285</td>
-											<td>BVF02</td>
+											<th scope="row">상태</th>
 											<td>운전</td>
 										</tr>
 										<tr>
-											<th scope="row">12340001</th>
-											<td>CWP Screen Wash PP-A</td>
-											<td>54321-12345</td>
+											<th scope="row">기능위치번호</th>
+											<td>38733-12345</td>
+											<th scope="row">기능위치명</th>
+											<td colspan="3">CWP Screen Wash Pump</td>
+										</tr>
+										<tr>
+											<th scope="row">계통코드</th>
 											<td>01285</td>
+											<th scope="row">계통명</th>
+											<td colspan="3">스크린세척펌프(Screen Wash Pump)</td>
+										</tr>
+										<tr>
+											<th scope="row">종류코드</th>
 											<td>BVF02</td>
+											<th scope="row">종류명</th>
+											<td colspan="3">BFP & Centrifugal Pump</td>
+										</tr>
+										<tr>
+											<th scope="row">자산번호</th>
+											<td>4001012567</td>
+											<th scope="row">자산명</th>
+											<td colspan="3">CWP 스크린 세척용 펌프 자재</td>
+										</tr>
+										<tr>
+											<th scope="row">계층구조</th>
+											<td colspan="5">평택복합2단계 > #1 증기터빈설비 > 순환수 설비 > Intake Screen & Wash SYS > CWP Screen Wash Pump > CWP Screen Wash PP-A</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							
+							<div class="data-table detail-table" id="detailTable02">
+								<table class="table">
+									<colgroup>
+										<col style="width: 160px;">
+										<col>
+										<col style="width: 160px;">
+										<col>
+										<col style="width: 160px;">
+										<col style="width: 120px;">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">설비번호</th>
+											<td>12340040</td>
+											<th scope="row">설비명</th>
+											<td>CWP Backwash Filter PP-A</td>
+											<th scope="row">상태</th>
 											<td>운전</td>
 										</tr>
 										<tr>
-											<th scope="row">12340001</th>
-											<td>CWP Screen Wash PP-A</td>
-											<td>54321-12345</td>
-											<td>01285</td>
-											<td>BVF02</td>
-											<td>운전</td>
+											<th scope="row">기능위치번호</th>
+											<td>38733-12345</td>
+											<th scope="row">기능위치명</th>
+											<td colspan="3">CWP Screen Wash Pump</td>
 										</tr>
 										<tr>
-											<th scope="row">12340001</th>
-											<td>CWP Screen Wash PP-A</td>
-											<td>54321-12345</td>
+											<th scope="row">계통코드</th>
 											<td>01285</td>
-											<td>BVF02</td>
-											<td>운전</td>
+											<th scope="row">계통명</th>
+											<td colspan="3">스크린세척펌프(Screen Wash Pump)</td>
 										</tr>
 										<tr>
-											<th scope="row">12340001</th>
-											<td>CWP Screen Wash PP-A</td>
-											<td>54321-12345</td>
-											<td>01285</td>
-											<td>BVF02</td>
-											<td>운전</td>
+											<th scope="row">종류코드</th>
+											<td>TYU0</td>
+											<th scope="row">종류명</th>
+											<td colspan="3">CWP Backwash Filter PP-A</td>
+										</tr>
+										<tr>
+											<th scope="row">자산번호</th>
+											<td>4001012567</td>
+											<th scope="row">자산명</th>
+											<td colspan="3">CWP 스크린 세척용 펌프 자재</td>
+										</tr>
+										<tr>
+											<th scope="row">계층구조</th>
+											<td colspan="5">평택복합2단계 > #1 증기터빈설비 > 순환수 설비 > CWP Backwash Filter PP-A > CWP Screen Wash PP-A</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
 
-
+							<script>
+								$(document).ready(function() {
+									$('#mainTable tbody tr').click(function() {
+										const id = $(this).data('id');
+						
+										// 모든 상세 테이블 숨기기
+										$('.detail-table').hide();
+						
+										// 클릭한 ID에 해당하는 상세 테이블 보여주기
+										$(`#detailTable${id}`).show();
+									});
+								});
+							</script>
 						</div>
 						<div class="tab-pane fade" id="tab02-pane" role="tabpanel" aria-labelledby="tab02" tabindex="0">
 							<p>준비중입니다.</p>
@@ -179,40 +299,51 @@
 -->
 
 <script>
-
 	$(document).ready(function () {
 
-		$('.modal').addClass('folded');
-		// Function to initialize jstree
+		$('.modal.facility').addClass('folded');
+		
+		// jsTree 초기화 함수
 		initializeJSTree();
 
 		let isCollapsed = true; // 초기 상태를 '닫힘'으로 설정
-		$('.modal-facility').find('.material-symbols-outlined').css('transform', 'scaleX(-1)');
+		$('.modal.facility').find('#toggle-side').css('transform', 'scaleX(-1)');
 
-		// 함수화
+		function openSidePanel() {
+			// 열림
+			$('.modal.facility').removeClass('modal-move folded');
+			$('.modal.facility').addClass('unfolded');
+			$('#toggle-side').attr('title', '패널 닫기');
+			$('#toggle-side').find('.material-symbols-outlined').css('transform', 'scaleX(-1)');
+			isCollapsed = false; // 상태 업데이트
+		}
+
+		function closeSidePanel() {
+			// 닫힘
+			$('.modal.facility').addClass('modal-move folded');
+			$('.modal.facility').removeClass('unfolded');
+			$('#toggle-side').attr('title', '패널 열기');
+			$('#toggle-side').find('.material-symbols-outlined').css('transform', 'scaleX(1)');
+			isCollapsed = true; // 상태 업데이트
+		}
+
+		// 토글 기능: 현재 상태에 따라 패널 열기 또는 닫기
 		function toggleSidePanel() {
 			if (isCollapsed) {
-				// 열림
-				$('.modal').removeClass('modal-move').removeClass('folded').css('left', '').css('top', '');
-				$('.contents-panel').addClass('expanded'); // 너비를 80픽셀로 줄임
-				$('#toggleSidePanel').attr('title', '패널 닫기'); // 타이틀 변경
-				$('#toggleSidePanel').find('.material-symbols-outlined').css('transform', 'scaleX(1)');
+				openSidePanel();
 			} else {
-				// 닫힘
-				$('.modal').addClass('modal-move').addClass('folded');
-				$('.contents-panel').removeClass('expanded'); // 기본 너비로 복원
-				$('#toggleSidePanel').attr('title', '패널 열기'); // 타이틀 변경
-				$('#toggleSidePanel').find('.material-symbols-outlined').css('transform', 'scaleX(-1)');
+				closeSidePanel();
 			}
-			isCollapsed = !isCollapsed; // 상태 토글
 		}
 
 		// 클릭 이벤트에 함수 바인딩
-		$('#toggleSidePanel').on('click', toggleSidePanel);
+		if ($('.modal.facility').length > 0) {
+			$('#toggle-side').on('click', toggleSidePanel);
+		}
 
 		// 3.3.15 버전
 		function initializeJSTree() {
-			// Define jsTree data
+			// jsTree 데이터 정의
 			const treeData = [
 				{ "id": "node1", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1'>visibility</span> <span class='fac-name'>SSWP-B</span></div>" },
 				{ "id": "node2", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node2'>visibility</span> <span class='fac-name'>CTCS-A BALL RECIRCULATION PUMP</span></div>" },
@@ -239,7 +370,7 @@
 				{ "id": "node23", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node23'>visibility</span> <span class='fac-name'>CCP DISCH Seal WTR Line Safety Valve</span></div>" },
 				{ "id": "node24", "parent": "#", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node24'>visibility</span> <span class='fac-name'>BALL RECIRCULATION</span></div>" },
 
-				// Nested nodes
+				// 중첩 노드
 				{ "id": "node1-1", "parent": "node1", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1-1'>visibility</span> <span class='fac-name'>MTR CLG WTR Line</span></div>" },
 				{ "id": "node1-1-1", "parent": "node1-1", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1-1-1'>visibility</span> <span class='fac-name'>DISCH Seal WTR Line Safety Valve</span></div>" },
 				{ "id": "node1-1-1-1", "parent": "node1-1-1", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1-1-1-1'>visibility</span> <span class='fac-name'>CTCS-A BALL RECIRCULATION PUMP</span></div>" },
@@ -249,7 +380,7 @@
 				{ "id": "node1-1-1-1-2", "parent": "node1-1-1-1", "text": "<div class='menu-item'><span class='material-symbols-outlined eye-icon' data-node='node1-1-1-1-2'>visibility</span> <span class='fac-name'>CWP-B MTR CLG WTR Line FT-9006</span></div>" },
 			];
 
-			// Initialize jstree with the data
+			// jsTree 초기화
 			$('#jstree').jstree({
 				'core': {
 					'data': treeData
@@ -274,21 +405,21 @@
 
 				var tempElement = $('<div>').html(fullNodeText);
 
-				// Find the <span> element with class 'fac-name' and get its text
+				// 'fac-name' 클래스를 가진 <span> 요소를 찾아 그 텍스트 가져오기
 				var partialText = tempElement.find('span.fac-name').text();
 
-				// Check if partialText is empty, handle accordingly
+				// partialText가 비어있는 경우 처리
 				if (!partialText) {
 					partialText = "좌측 패널에서 설비명을 검색해 주세요."; // Fallback if no matching element is found
 				}
 
 				$('#content-display h2.box-title01').text(partialText);
 				
-				//
-				toggleSidePanel();
+				// 메뉴 클릭 시 패널 항상 열기
+				openSidePanel();
 			});
 
-			// Eye icon click event
+			// 눈 아이콘 클릭 이벤트
 			$('#jstree').on("click", ".eye-icon", function (e) {
 				e.stopPropagation(); // 클릭 이벤트가 부모 노드로 전파되지 않도록 방지
 
@@ -305,13 +436,16 @@
 				}
 			});
 
-			// **Search functionality**
+			// **검색 기능**
 			$('#search-input').on('keyup', function() {
 				var searchString = $(this).val();
 				$('#jstree').jstree('search', searchString);
 			});
 		}
 
+
 	});
 
 </script>
+
+

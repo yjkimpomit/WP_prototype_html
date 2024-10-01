@@ -1,18 +1,14 @@
 @charset "utf-8";
 
 /*#################### 모달 ####################*/
-.modal.modal-move .modal-header {
-	cursor: move;
+.modal-dialog-scrollable .modal-content {
+	max-height: 800px;
 }
 
 /* override */
 .modal-dialog {
 	width: auto;
 	max-width: var(--wp-modal-width);
-}
-
-.modal.folded .modal-dialog {
-	max-width: var(--wp-modal-folded);
 }
 
 .modal-content {
@@ -28,6 +24,16 @@
 	font-size: 20px;
 	font-weight: 700;
 	color: var(--text-brand-default);
+}
+
+.modal-header small {
+	font-size: 80%;
+	font-weight: 500;
+	margin-left: .25rem;
+
+	color: var(--text-danger-tertiary);
+	font-family: var(--font-family-number);
+	font-style: italic;
 }
 
 .modal-header .btn-close {
@@ -46,40 +52,20 @@
 	background-color: var(--bg-brand-defaulthover);
 }
 
-/* 설비팝업 */
-.modal-facility {
-	height: calc(800px - 64px);
-	display: flex;
-	position: relative;
+/* modal move */
+.modal.modal-move .modal-header {
+	cursor: move;
 }
-
-.modal-facility [class*='-panel'] {
-	align-items: stretch;
+/* 
+.modal.modal-move .modal-dialog {
+	max-width: var(--wp-modal-width-folded);
 }
+ */
 
-/*  */
-.modal-facility > .toggle-side {
-	top: 1rem;
-	left: 304px;
-}
 
-.modal-facility .side-panel {
-	flex-direction: column;
-}
-
-.modal-facility .side-panel .form-control {
-	height: 40px;
-	width: calc(100% - 48px);
-	margin-bottom: 1rem;
-
-	background-image: url("../images/icons/icon-search.svg");
-	background-size: auto;
-	background-repeat: no-repeat;
-	background-position: calc(100% - 8px) center;
-}
 
 /* toggle menu */
-#toggleSidePanel {
+#toggle-side {
 	width: 40px;
 	height: 40px;
 	display: flex;
@@ -92,14 +78,14 @@
 	position: absolute;
 	z-index: 300;
 }
-#toggleSidePanel:hover {
+#toggle-side:hover {
 	background-color: var(--bg-brand-darkhover);
 }
 
 
 /* 사이드패널 확장, 축소 */
 .side-panel {
-	flex: 1 0 var(--wp-modal-folded);
+	flex: 1 0 var(--wp-modal-width-folded);
 	vertical-align: top;
 	overflow: hidden;
 
@@ -115,14 +101,59 @@
 }
 
 .contents-panel {
+	vertical-align: top;
+	padding: 1rem;
+	overflow-y: auto;
+}
+
+.modal.folded .contents-panel {
 	display: none;
 }
-.contents-panel.expanded {
+
+.modal.unfolded .contents-panel {
 	display: inline-block;
-	vertical-align: top;
-	
-	flex: 1 0 calc(100% - var(--wp-modal-folded));
-	padding: 1rem;
+	flex: 1 0 calc(100% - var(--wp-modal-width-folded));
+}
+
+
+/* 설비팝업 */
+/* 
+.modal-move.facility {
+	width: var(--wp-modal-width-folded);
+}
+ */
+.modal.facility .modal-body > div {
+	height: calc(800px - 64px);
+	display: flex;
+	position: relative;
+}
+
+/*  */
+.modal.facility.folded .modal-dialog {
+	max-width: var(--wp-modal-width-folded);
+	transition: max-width 0.3s ease-in-out;
+	transform-origin: left top;
+}
+
+.modal.facility.unfolded .modal-dialog {
+	max-width: var(--wp-modal-width);
+	transition: max-width 0.3s ease-in-out;
+}
+
+.modal.facility #toggle-side {
+	top: 1rem;
+	left: 304px;
+}
+
+.modal.facility .side-panel .form-control {
+	height: 40px;
+	width: calc(100% - 48px);
+	margin-bottom: 1rem;
+
+	background-image: url("../images/icons/icon-search.svg");
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-position: calc(100% - 8px) center;
 }
 
 /* 눈 모양 아이콘 스타일 */
@@ -162,6 +193,12 @@
 .jstree-default .jstree-search .eye-icon {
 	color: var(--text-brand-secondary);
 }
+
+/* TM 현황 */
+.modal-tm {
+	min-height: 700px;
+}
+
 
 /* 대시보드 */
 
