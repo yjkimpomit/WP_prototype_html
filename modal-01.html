@@ -44,28 +44,22 @@
 					<!-- tab-menu -->
 					<ul class="nav nav-tabs" id="facTab" role="tablist">
 						<li class="nav-item" role="presentation">
-							<button class="nav-link active" id="tab01" data-bs-toggle="tab" data-bs-target="#tab01-pane" type="button"
-								role="tab" aria-controls="tab01-pane" aria-selected="true">설비</button>
+							<a class="nav-link active" id="tab01" href="#" data-url="modal-01-tab01.html" role="tab" aria-controls="tab01-pane" aria-selected="true">설비정보</a>
 						</li>
 						<li class="nav-item" role="presentation">
-							<button class="nav-link" id="tab02" data-bs-toggle="tab" data-bs-target="#tab02-pane" type="button"
-								role="tab" aria-controls="tab02-pane" aria-selected="false">정비이력</button>
+							<a class="nav-link" id="tab02" href="#" data-url="modal-01-tab02.html" role="tab" aria-controls="tab02-pane" aria-selected="false">정비이력</a>
 						</li>
 						<li class="nav-item" role="presentation">
-							<button class="nav-link" id="tab03" data-bs-toggle="tab" data-bs-target="#tab03-pane" type="button"
-								role="tab" aria-controls="tab03-pane" aria-selected="false">고장이력</button>
+							<a class="nav-link" id="tab03" href="#" data-url="modal-01-tab02.html" role="tab" aria-controls="tab03-pane" aria-selected="false">고장이력</a>
 						</li>
 						<li class="nav-item" role="presentation">
-							<button class="nav-link" id="tab04" data-bs-toggle="tab" data-bs-target="#tab04-pane" type="button"
-								role="tab" aria-controls="tab04-pane" aria-selected="false">자재</button>
+							<a class="nav-link" id="tab04" href="#" data-url="modal-01-tab04.html" role="tab" aria-controls="tab04-pane" aria-selected="false">자재정보</a>
 						</li>
 						<li class="nav-item" role="presentation">
-							<button class="nav-link" id="tab03" data-bs-toggle="tab" data-bs-target="#tab05-pane" type="button"
-								role="tab" aria-controls="tab05-pane" aria-selected="false">TM 발행</button>
+							<a class="nav-link" id="tab05" href="#" data-url="modal-01-tab05.html" role="tab" aria-controls="tab05-pane" aria-selected="false">TM 발행</a>
 						</li>
 						<li class="nav-item" role="presentation">
-							<button class="nav-link" id="tab03" data-bs-toggle="tab" data-bs-target="#tab06-pane" type="button"
-								role="tab" aria-controls="tab06-pane" aria-selected="false">운전정보</button>
+							<a class="nav-link" id="tab0" href="#" data-url="modal-01-tab06.html" role="tab" aria-controls="tab06-pane" aria-selected="false">운전정보</a>
 						</li>
 						<!-- 
 						<li class="nav-item" role="presentation">
@@ -76,213 +70,7 @@
 					</ul>
 
 					<!-- tab content -->
-					<div class="tab-content" id="facTabContent">
-						<div class="tab-pane fade show active" id="tab01-pane" role="tabpanel" aria-labelledby="tab01" tabindex="0">
-							<!-- data table -->
-							<h3 class="box-title02">설비정보<small>(전체 10건)</small></h3>
-
-							<!-- fac list -->
-							<div class="table-wrapper">
-								<div class="table-header"></div>
-								<div class="table-body">
-									<table class="table has-data-id" id="mainTable">
-										<thead class="table-light">
-											<tr>
-												<th scope="col" class="text-center">설비번호</th>
-												<th scope="col" class="text-left">설비명</th>
-												<th scope="col" class="text-center">기능위치번호</th>
-												<th scope="col" class="text-center">계통코드</th>
-												<th scope="col" class="text-center">종류코드</th>
-												<th scope="col" class="text-center">상태</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr data-id="01">
-												<th class="text-center">12340001</th>
-												<td class="text-left">CWP Screen Wash PP-A</td>
-												<td class="text-center">54321-12345</td>
-												<td class="text-center">01285</td>
-												<td class="text-center">BVF02</td>
-												<td class="text-center">운전</td>
-											</tr>
-											<tr data-id="02">
-												<th class="text-center">12340001</th>
-												<td class="text-left">CWP Screen Wash PP-A</td>
-												<td class="text-center">54321-12345</td>
-												<td class="text-center">01285</td>
-												<td class="text-center">BVF02</td>
-												<td class="text-center">운전</td>
-											</tr>
-											<tr>
-												<th class="text-center">12340001</th>
-												<td class="text-left">CWP Screen Wash PP-A</td>
-												<td class="text-center">54321-12345</td>
-												<td class="text-center">01285</td>
-												<td class="text-center">BVF02</td>
-												<td class="text-center">운전</td>
-											</tr>
-											<tr>
-												<th class="text-center">12340001</th>
-												<td class="text-left">CWP Screen Wash PP-A</td>
-												<td class="text-center">54321-12345</td>
-												<td class="text-center">01285</td>
-												<td class="text-center">BVF02</td>
-												<td class="text-center">운전</td>
-											</tr>
-											<tr>
-												<th class="text-center">12340001</th>
-												<td class="text-left">CWP Screen Wash PP-A</td>
-												<td class="text-center">54321-12345</td>
-												<td class="text-center">01285</td>
-												<td class="text-center">BVF02</td>
-												<td class="text-center">운전</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-
-							<h4 class="box-title03">CWP Screen Wash PP-A 상세정보</h4>
-							<!-- info -->
-							<div class="data-table detail-table" id="detailTable01">
-								<table class="table">
-									<colgroup>
-										<col style="width: 160px;">
-										<col>
-										<col style="width: 160px;">
-										<col>
-										<col style="width: 160px;">
-										<col style="width: 120px;">
-									</colgroup>
-									<tbody>
-										<tr>
-											<th scope="row">설비번호</th>
-											<td>70340001</td>
-											<th scope="row">설비명</th>
-											<td>CWP Screen Wash PP-A</td>
-											<th scope="row">상태</th>
-											<td>운전</td>
-										</tr>
-										<tr>
-											<th scope="row">기능위치번호</th>
-											<td>38733-12345</td>
-											<th scope="row">기능위치명</th>
-											<td colspan="3">CWP Screen Wash Pump</td>
-										</tr>
-										<tr>
-											<th scope="row">계통코드</th>
-											<td>01285</td>
-											<th scope="row">계통명</th>
-											<td colspan="3">스크린세척펌프(Screen Wash Pump)</td>
-										</tr>
-										<tr>
-											<th scope="row">종류코드</th>
-											<td>BVF02</td>
-											<th scope="row">종류명</th>
-											<td colspan="3">BFP & Centrifugal Pump</td>
-										</tr>
-										<tr>
-											<th scope="row">자산번호</th>
-											<td>4001012567</td>
-											<th scope="row">자산명</th>
-											<td colspan="3">CWP 스크린 세척용 펌프 자재</td>
-										</tr>
-										<tr>
-											<th scope="row">계층구조</th>
-											<td colspan="5">평택복합2단계 > #1 증기터빈설비 > 순환수 설비 > Intake Screen & Wash SYS > CWP Screen Wash Pump > CWP Screen Wash PP-A</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							
-							<div class="data-table detail-table" id="detailTable02">
-								<table class="table">
-									<colgroup>
-										<col style="width: 160px;">
-										<col>
-										<col style="width: 160px;">
-										<col>
-										<col style="width: 160px;">
-										<col style="width: 120px;">
-									</colgroup>
-									<tbody>
-										<tr>
-											<th scope="row">설비번호</th>
-											<td>12340040</td>
-											<th scope="row">설비명</th>
-											<td>CWP Backwash Filter PP-A</td>
-											<th scope="row">상태</th>
-											<td>운전</td>
-										</tr>
-										<tr>
-											<th scope="row">기능위치번호</th>
-											<td>38733-12345</td>
-											<th scope="row">기능위치명</th>
-											<td colspan="3">CWP Screen Wash Pump</td>
-										</tr>
-										<tr>
-											<th scope="row">계통코드</th>
-											<td>01285</td>
-											<th scope="row">계통명</th>
-											<td colspan="3">스크린세척펌프(Screen Wash Pump)</td>
-										</tr>
-										<tr>
-											<th scope="row">종류코드</th>
-											<td>TYU0</td>
-											<th scope="row">종류명</th>
-											<td colspan="3">CWP Backwash Filter PP-A</td>
-										</tr>
-										<tr>
-											<th scope="row">자산번호</th>
-											<td>4001012567</td>
-											<th scope="row">자산명</th>
-											<td colspan="3">CWP 스크린 세척용 펌프 자재</td>
-										</tr>
-										<tr>
-											<th scope="row">계층구조</th>
-											<td colspan="5">평택복합2단계 > #1 증기터빈설비 > 순환수 설비 > CWP Backwash Filter PP-A > CWP Screen Wash PP-A</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-
-							<script>
-								$(document).ready(function() {
-									$('#mainTable tbody tr').click(function() {
-										const id = $(this).data('id');
-						
-										// 모든 상세 테이블 숨기기
-										$('.detail-table').hide();
-						
-										// 클릭한 ID에 해당하는 상세 테이블 보여주기
-										$(`#detailTable${id}`).show();
-									});
-								});
-							</script>
-						</div>
-						<div class="tab-pane fade" id="tab02-pane" role="tabpanel" aria-labelledby="tab02" tabindex="0">
-							<p>준비중입니다.</p>
-						</div>
-						<div class="tab-pane fade" id="tab03-pane" role="tabpanel" aria-labelledby="tab03" tabindex="0">
-							<p>준비중입니다.</p>
-						</div>
-						<div class="tab-pane fade" id="tab04-pane" role="tabpanel" aria-labelledby="tab04" tabindex="0">
-							<p>준비중입니다.</p>
-						</div>
-						<div class="tab-pane fade" id="tab05-pane" role="tabpanel" aria-labelledby="tab04" tabindex="0">
-							<p>준비중입니다.</p>
-						</div>
-						<div class="tab-pane fade" id="tab05-pane" role="tabpanel" aria-labelledby="tab05" tabindex="0">
-							<p>준비중입니다.</p>
-						</div>
-						<div class="tab-pane fade" id="tab06-pane" role="tabpanel" aria-labelledby="tab06" tabindex="0">
-							<p>준비중입니다.</p>
-						</div>
-						<!-- 
-						<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
-							<p>준비중입니다.</p>
-						</div> -->
-					</div>
+					<div class="tab-content" id="facTabContent"></div>
 
 				</div>
 
@@ -297,6 +85,38 @@
 <button type="button" class="btn btn-primary">Save changes</button>
 </div>
 -->
+
+<script>
+	$(document).ready(function() {
+		// 초기 탭 로드
+		loadTabContent('modal-01-tab01.html');
+	
+		// 탭 클릭 이벤트
+		$('#facTab .nav-link').on('click', function(e) {
+			e.preventDefault();
+	
+			// 활성 탭 업데이트
+			$('#facTab .nav-link').removeClass('active');
+			$(this).addClass('active');
+	
+			// 외부 HTML 로드
+			const url = $(this).data('url');
+			loadTabContent(url);
+		});
+	
+		// 외부 HTML 로드 함수
+		function loadTabContent(url) {
+			$('#facTabContent').load(url, function(response, status, xhr) {
+				if (status === "error") {
+					console.error("Error loading content: " + xhr.status + " " + xhr.statusText);
+					$('#facTabContent').html("<div class='not-ready'>준비중입니다.</div>");
+				} else {
+					$('#facTabContent').addClass('active');
+				}
+			});
+		}
+	});
+</script>
 
 <script>
 	$(document).ready(function () {

@@ -1,0 +1,168 @@
+<div class="tab-pane fade show active" id="tab01-pane" role="tabpanel" aria-labelledby="tab01" tabindex="0">
+	<!-- data table -->
+	<h3 class="box-title02">자재정보<small>(전체 3건)</small></h3>
+
+	<!-- fac list -->
+	<div class="table-wrapper">
+		<div class="table-header"></div>
+		<div class="table-body">
+			<table class="table has-data-id" id="mainTable">
+				<thead class="table-light">
+					<tr>
+						<th scope="col" class="text-left">자재번호</th>
+						<th scope="col" class="text-center">품명 및 규격</th>
+						<th scope="col" class="text-center">자재클래스</th>
+						<th scope="col" class="text-center">연간소요량</th>
+						<th scope="col" class="text-center">총누적소요량</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-id="01">
+						<th class="text-center prd-code">123456</td>
+						<td class="text-left prd-name">부쉬,일반형,기계용,BUSH,GENERAL,MECHANICAL,Ø66x44,HBSC4</th>
+						<td class="text-center prd-name">12342030A</td>
+						<td class="text-center">1</td>
+						<td class="text-center">1</td>
+					</tr>
+					<tr data-id="01">
+						<th class="text-center prd-code">852456</td>
+						<td class="text-left prd-name">씰,비금속 원형 단면형,SEAL,NONMETALLIC ROUND SECTION,OR 117-8,NBR SHORE A75</th>
+						<td class="text-center prd-name">2030A1234</td>
+						<td class="text-center">182</td>
+						<td class="text-center">1,256</td>
+					</tr>
+					<tr data-id="01">
+						<th class="text-center prd-code">726456</td>
+						<td class="text-left prd-name">GENERAL,MECHANICAL,Ø66x44,HBSC4</th>
+						<td class="text-center prd-name">203430A12</td>
+						<td class="text-center">1</td>
+						<td class="text-center">1</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<h4 class="box-title03">자재상세</h4>
+	
+	<div class="alert alert-primary" id="message">
+		<p class="mb-0 text-center text-primary">조회할 항목을 선택해 주세요.</p>
+	</div>
+
+	<!-- info -->
+	<div class="data-table detail-table" id="detailTable01">
+		<table class="table">
+			<colgroup>
+				<col style="width: 104px;">
+				<col>
+				<col style="width: 104px;">
+				<col>
+				<col style="width: 104px;">
+				<col>
+			</colgroup>
+			<tbody>
+				<tr>
+					<th scope="row">자재번호</th>
+					<td class="detail-prd-code">123456</td>
+					<th scope="row">MEIC</th>
+					<td>기계</td>
+					<th scope="row">자재그룹</th>
+					<td>A20</td>
+				</tr>
+				<tr>
+					<th scope="row">자재클래스</th>
+					<td>2030C4568</td>
+					<th scope="row">자재클래스명</th>
+					<td>부쉬,일반형,기계용</td>
+					<th scope="row">단위</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">구 자재번호</th>
+					<td></td>
+					<th scope="row">품질등급</th>
+					<td>S</td>
+					<th scope="row">생성요청자</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">생성요청부서</th>
+					<td></td>
+					<th scope="row">생성일</th>
+					<td></td>
+					<th scope="row">변경일</th>
+					<td>2021-06-13</td>
+				</tr>
+				<tr>
+					<th scope="row">호기</th>
+					<td>52933</td>
+					<th scope="row">주 설비명</th>
+					<td colspan="3">Primary Air Fan</td>
+				</tr>
+				<tr>
+					<th scope="row">품명 및 규격</th>
+					<td colspan="5" class="detail-prd-name">부쉬,일반형,기계용,BUSH,GENERAL,MECHANICAL,Ø66x44,HBSC4</td>
+				</tr>
+				<tr>
+					<th scope="row">연간소요량</th>
+					<td>1</td>
+					<th scope="row">총 누적소요량</th>
+					<td>1</td>
+					<th scope="row">자재유형</th>
+					<td>SUBR</td>
+				</tr>
+				<tr>
+					<th scope="row">인수검사여부</th>
+					<td>X</td>
+					<th scope="row">공장검사여부</th>
+					<td>A</td>
+					<th scope="row">시리얼넘버</th>
+					<td></td>
+				</tr>
+				<tr>
+					<th scope="row">제조사 부품식별번호</th>
+					<td></td>
+					<th scope="row">제조사</th>
+					<td>한국중공업</td>
+					<th scope="row">모델넘버</th>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			$('#mainTable tbody tr').click(function() {
+				const id = $(this).data('id'); // 클릭된 행의 data-id 값을 가져옵니다.
+				const detailTable = $(`#detailTable${id}`); // 해당 ID에 맞는 상세 테이블 선택
+				
+				// 클릭된 행의 fac-code 텍스트를 가져옵니다.
+				const facCodeText = $(this).find('.prd-code').text();
+				const ordCodeText = $(this).find('.prd-name').text();
+
+				// 모든 상세 테이블 숨기기 및 모든 행의 active 클래스 제거
+				$('.detail-table').hide();
+				$('#mainTable tbody tr').removeClass('active');
+
+				if (detailTable.is(':visible')) {
+					// 이미 보이고 있다면 상세 테이블 숨기고 메시지 보여주기
+					detailTable.hide();
+					$('#message').show();
+					$(this).removeClass('active'); // active 클래스 제거
+				} else {
+					// 보이지 않으면 상세 테이블 보여주고 메시지 숨기기
+					detailTable.show();
+					$('#message').hide();
+					$(this).addClass('active'); // active 클래스 추가
+
+					// 상세 테이블에 fac-code 값을 대입합니다.
+					detailTable.find('.detail-prd-code').text(facCodeText); // 값 대입
+					detailTable.find('.detail-prd-name').text(ordCodeText); // 값 대입
+				}
+			});
+		});
+
+
+	</script>
+</div>

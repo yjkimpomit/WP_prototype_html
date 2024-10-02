@@ -87,7 +87,7 @@ $(document).ready(function () {
 
 		// URL이 비어 있거나 없는 경우 처리
 		if (!modalUrl) {
-			$('#externalModal .modal-content').html('<p style="display: flex; align-items: center; justify-content: center; height: 600px; font-size: 2rem;">준비중입니다</p>');
+			$('#externalModal .modal-content').html('<div class="not-ready">준비중입니다.</div>');
 			$('#externalModal').addClass(modalClass).modal('show');
 		} else {
 			/* // 모달 HTML을 비동기적으로 불러오기
@@ -248,7 +248,7 @@ function showAlert() {
 /* 
 // Automatically load modal-06.html on page load
 window.addEventListener('load', () => {
-	const url = 'modal-02.html';  // URL of the default modal file
+	const url = 'modal-06.html';  // URL of the default modal file
 
 	// Fetch the external HTML content
 	fetch(url)
@@ -275,8 +275,8 @@ window.addEventListener('load', () => {
 			alert('준비중입니다.');
 		});
 });
-
-
  */
+
+
 
 

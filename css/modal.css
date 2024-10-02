@@ -1,8 +1,9 @@
 @charset "utf-8";
+@import url(./high-chart-custom.css);
 
 /*#################### 모달 ####################*/
 .modal-dialog-scrollable .modal-content {
-	max-height: 800px;
+	height: 800px;
 }
 
 /* override */
@@ -16,6 +17,7 @@
 	border-radius: 0;
 }
 
+/* modal-header */
 .modal-header {
 	height: 64px;
 }
@@ -52,17 +54,19 @@
 	background-color: var(--bg-brand-defaulthover);
 }
 
-/* modal move */
+/* modal move 
 .modal.modal-move .modal-header {
 	cursor: move;
 }
-/* 
-.modal.modal-move .modal-dialog {
-	max-width: var(--wp-modal-width-folded);
+*/
+
+.modal-body {
+	height: calc(100% - 64px);
 }
- */
 
-
+.modal-body > div {
+	height: 100%;
+}
 
 /* toggle menu */
 #toggle-side {
@@ -78,25 +82,28 @@
 	position: absolute;
 	z-index: 300;
 }
+
 #toggle-side:hover {
 	background-color: var(--bg-brand-darkhover);
 }
 
-
 /* 사이드패널 확장, 축소 */
 .side-panel {
-	flex: 1 0 var(--wp-modal-width-folded);
+	flex: 1 0 var(--wp-side-panel-width);
 	vertical-align: top;
 	overflow: hidden;
 
 	background-color: var(--bg-neutral-tertiary);
 	padding: 1rem;
+
+	max-width: 360px;
 }
 
-.side-panel.left {	
+.side-panel.left {
 	border-right: solid 1px var(--border-neutral-secondary) !important;
 }
-.side-panel.right {	
+
+.side-panel.right {
 	border-left: solid 1px var(--border-neutral-secondary) !important;
 }
 
@@ -112,17 +119,17 @@
 
 .modal.unfolded .contents-panel {
 	display: inline-block;
-	flex: 1 0 calc(100% - var(--wp-modal-width-folded));
+	flex: 1 0 calc(100% - var(--wp-side-panel-width));
 }
 
 
 /* 설비팝업 */
 /* 
 .modal-move.facility {
-	width: var(--wp-modal-width-folded);
+	width: var(--wp-side-panel-width);
 }
  */
-.modal.facility .modal-body > div {
+.modal.facility .modal-body>div {
 	height: calc(800px - 64px);
 	display: flex;
 	position: relative;
@@ -130,7 +137,7 @@
 
 /*  */
 .modal.facility.folded .modal-dialog {
-	max-width: var(--wp-modal-width-folded);
+	max-width: var(--wp-side-panel-width);
 	transition: max-width 0.3s ease-in-out;
 	transform-origin: left top;
 }
@@ -162,7 +169,8 @@
 	margin-left: 4px;
 	margin-right: 4px;
 	color: var(--icon-brand-secondary);
-	font-size: 16px; /* 아이콘 크기 조정 */
+	font-size: 16px;
+	/* 아이콘 크기 조정 */
 	line-height: 24px;
 }
 
@@ -176,6 +184,7 @@
 	overflow-y: scroll;
 	height: calc(100% - 38px - 1rem);
 }
+
 .jstree-default .jstree-anchor {
 	font-size: 15px;
 	letter-spacing: -.025rem;
@@ -185,7 +194,7 @@
 .jstree-default .jstree-search {
 	font-style: normal;
 	color: var(--text-brand-secondary);
-	
+
 	--bs-bg-opacity: 0.2;
 	background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
@@ -201,6 +210,19 @@
 
 
 /* 대시보드 */
+.modal-dashboard {
+	display: flex;
+	justify-content: center;
+}
+
+.modal-dashboard>.contents-panel {
+	padding: 1rem 2.5rem;
+	width: calc(100% - var(--wp-side-panel-width))
+}
+
+.modal-dashboard>.side-panel.right {
+	background-color: var(--bg-neutral-tertiary);
+}
 
 /* dashboard - output */
 .modal-dashboard .plant,
@@ -212,10 +234,12 @@
 .modal-dashboard .plant {
 	background: url("../images/icons/output-icon01.svg") no-repeat 16px center;
 }
+
 .modal-dashboard .steam {
 	background: url("../images/icons/output-icon02.svg") no-repeat 16px center;
 	position: relative;
 }
+
 .modal-dashboard .reheat {
 	background: url("../images/icons/output-icon03.svg") no-repeat 16px center;
 }
@@ -232,20 +256,26 @@
 	top: 50%;
 	transform: translateY(-50%);
 }
+
 .modal-dashboard .steam::before {
 	left: calc(var(--bs-gutter-x) * -0.5);
 	border-left: solid 1px var(--table-tablebox-border2);
 }
+
 .modal-dashboard .steam::after {
 	right: calc(var(--bs-gutter-x) * -0.5);
 	border-right: solid 1px var(--table-tablebox-border2);
 }
 
 /* chart */
-.modal-dashboard .chart {
+.modal-dashboard .chart-box {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	border: solid 1px var(--border-neutral-secondary);
+	border-radius: var(--bs-border-radius);
+	padding: 1rem 0 0;
 }
 
 .modal-dashboard .chart img {
@@ -260,59 +290,159 @@
 	margin-bottom: .5rem;
 }
 
-.modal-dashboard span {
+/* output */
+.modal-dashboard .output span {
 	font-size: 15px;
 	font-weight: 500;
 	padding-right: .5rem;
 }
-.modal-dashboard strong {
+
+.modal-dashboard .output strong {
 	font-family: var(--font-family-number);
 	font-size: 24px;
 	font-weight: 700;
 }
-.modal-dashboard strong > small {
+
+.modal-dashboard .output strong>small {
 	font-size: 12px;
 	font-weight: 500;
 }
 
 /* apc */
-[class*="apc-"] > * {
-	display: none;
+.modal-dashboard .apc-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-[class*="apc-"] {
-	width: 278px;
-	height: 144px;
+.modal-dashboard .apc-box .item {
+	border: solid 1px var(--border-neutral-secondary);
+	border-radius: var(--bs-border-radius);
+	padding: 1.5rem 1rem;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: center;
+
+	position: relative;
 }
 
-.apc-inlet {
-	background: url("../images/apc-item01.svg") no-repeat left center;
-}
-.apc-outlet {
-	background: url("../images/apc-item02.svg") no-repeat left center;
-}
-.apc-debris {
-	background: url("../images/apc-item03.svg") no-repeat left center;
-}
-.apc-ctcs {
-	background: url("../images/apc-item04.svg") no-repeat left center;
+.modal-dashboard .apc-box .item .title {
+	position: absolute;
+	top: 1.5rem;
+	max-width: 50%;
+
+	font-size: 1rem;
+	letter-spacing: -.025rem;
+	line-height: 1.4;
 }
 
-/* air info */
-.modal-dashboard .env-item,
+.modal-dashboard .apc-box .item ul {
+	margin-top: 3.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.modal-dashboard .apc-box .item ul li:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.modal-dashboard .apc-box .item ul li strong {
+	font-size: 20px;
+	font-family: var(--font-family-number);
+	font-weight: 700;
+}
+.modal-dashboard .apc-box .item ul li span {
+	font-size: 16px;
+	color: var(--text-default-secondary);
+}
+
+.modal-dashboard .apc-box .item ul li.in strong {
+	color: var(--text-brand-tertiary);
+}
+.modal-dashboard .apc-box .item ul li.out strong {
+	color: var(--text-default-secondary);
+}
+
+.modal-dashboard .apc-box .item .total {
+	width: 96px;
+	height: 96px;
+	border-radius: var(--wp-border-radius-full);
+	background-color: var(--bg-neutral-tertiary);
+	border: solid 1px var(--border-neutral-tertiary);
+
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal-dashboard .apc-box .item .total>strong {
+	color: var(--text-brand-tertiary);
+	font-size: 32px;
+	line-height: 1.2;
+}
+
+.modal-dashboard .apc-box .item .total>span {
+	color: var(--text-default-secondary);
+	font-size: 14px;
+	font-weight: 700;
+}
+
+/* 경고알림 */
+
+.modal-dashboard .apc-box .item.warning ul li.in strong {
+	color: var(--text-danger-secondary);
+}
+
+.modal-dashboard .apc-box .item.warning .total::after {
+	content: '';
+	width: 32px;
+	height: 32px;
+
+	background-color: var(--bg-warning-default);
+	background-image: url("../images/icons/icon-apc-alarm.svg");
+	background-position: center 6px;
+	background-repeat: no-repeat;
+	background-size: 16px;
+
+	position: absolute;
+	right: -.25rem;
+	top: -.25rem;
+
+	border-radius: var(--wp-border-radius-full);
+}
+
+.modal-dashboard .apc-box .item.warning .total {
+	background-color: var(--bg-danger-default);
+	border: solid 1px var(--border-danger-tertiary);
+
+	position: relative;
+}
+
+.modal-dashboard .apc-box .item.warning .total>strong,
+.modal-dashboard .apc-box .item.warning .total>span {
+	color: var(--text-default-white);
+}
+
+/* env info */
+.modal-dashboard .env-main-item,
 .modal-dashboard .env-list {
 	max-width: 280px;
-	margin: 0 auto;
+	margin: 3rem auto 0;
 }
 
-.modal-dashboard .env-item {
+.modal-dashboard .env-main-item {
 	background: url("../images/icons/air-icon.svg") no-repeat 20px center;
 	background-size: 56px;
 
 	padding-left: 100px;
 	min-height: 56px;
 }
-.modal-dashboard .env-item .title { 
+
+.modal-dashboard .env-main-item .title {
 	font-size: 15px;
 	font-weight: 700;
 	color: var(--text-neutral-default);
@@ -325,26 +455,36 @@
 	color: var(--text-neutral-default);
 	display: block;
 }
+
 .modal-dashboard .env-value {
 	font-size: 36px;
 	line-height: 1.2;
 }
+
 .modal-dashboard .env-value small {
 	font-size: 16px;
 	color: var(--text-neutral-tertiary);
+}
+
+.modal-dashboard .env-list .env-item {
+	background-color: var(--bg-default-default);
+	border: solid 1px var(--border-neutral-secondary);
+	border-radius: var(--bs-border-radius);
+	padding: 1rem 1.5rem;
+	margin-bottom: 1rem;
 }
 
 .modal-dashboard .env-list .env-title {
 	font-size: 14px;
 	font-weight: 700;
 	color: var(--text-default-secondary);
-	
-	padding-left: 48px;
-	background: url("../images/icons/icon-lighting-yellow.svg") no-repeat 24px center;
+
+	padding-left: 24px;
+	background: url("../images/icons/icon-lighting-yellow.svg") no-repeat left center;
 
 	display: inline-block;
 	position: relative;
-	width: 100px;
+	width: 80px;
 	margin-right: 1rem;
 }
 
@@ -357,6 +497,7 @@
 	font-family: var(--font-family-number);
 	font-weight: 700;
 }
+
 .modal-dashboard .env-list .env-value small {
 	font-size: 12px;
 	font-weight: 400;
@@ -376,3 +517,4 @@
 .btn-box .btn {
 	margin: .25rem;
 }
+

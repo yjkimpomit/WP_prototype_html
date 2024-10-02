@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Highcharts Example</title>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<style>
+		.highcharts-credits {
+			display: none;
+		}
+
+		.highcharts-figure,
+		.highcharts-data-table table {
+			min-width: 310px;
+			max-width: 328px;
+			margin: 1em auto;
+		}
+
+		#container {
+			height: 216px;
+		}
+
+		.highcharts-data-table table {
+			font-family: Verdana, sans-serif;
+			border-collapse: collapse;
+			border: 1px solid #ebebeb;
+			margin: 10px auto;
+			text-align: center;
+			width: 100%;
+			max-width: 500px;
+		}
+
+		.highcharts-data-table caption {
+			padding: 1em 0;
+			font-size: 1.2em;
+			color: #555;
+		}
+
+		.highcharts-data-table th {
+			font-weight: 600;
+			padding: 0.5em;
+		}
+
+		.highcharts-data-table td,
+		.highcharts-data-table th,
+		.highcharts-data-table caption {
+			padding: 0.5em;
+		}
+
+		.highcharts-data-table thead tr,
+		.highcharts-data-table tr:nth-child(even) {
+			background: #f8f8f8;
+		}
+
+		.highcharts-data-table tr:hover {
+			background: #f1f7ff;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="highcharts-figure">
+		<div id="container"></div>
+	</div>
+
+	<script>
+	Highcharts.chart('container', {
+		chart: {
+			zooming: {
+				type: 'xy'
+			}
+		},
+		title: {
+			text: 'GT',
+			align: 'left'
+		},
+		xAxis: [{
+			categories: ['현재값', '기대값', '보정값'],
+			crosshair: true
+		}],
+		yAxis: [{ // Primary yAxis
+			labels: {
+				format: '{value}%',
+				style: {
+					color: Highcharts.getOptions().colors[1]
+				}
+			},
+			title: {
+				text: '효율(HHV)',
+				style: {
+					color: Highcharts.getOptions().colors[1]
+				}
+			},
+			min: 0, // 최소값 설정
+			max: 100, // 최대값 설정
+		}, { // Secondary yAxis
+			title: {
+				text: '출력(MW)',
+				style: {
+					color: Highcharts.getOptions().colors[0]
+				}
+			},
+			min: 0, // 최소값 설정
+			max: 300, // 최대값 설정
+			labels: {
+				format: '{value}',
+				style: {
+					color: Highcharts.getOptions().colors[0]
+				}
+			},
+			opposite: true
+		}],
+		tooltip: {
+			shared: true
+		},
+		legend: {
+			align: 'left',
+			verticalAlign: 'top',
+			backgroundColor:
+				Highcharts.defaultOptions.legend.backgroundColor || // theme
+				'rgba(255,255,255,0.25)'
+		},
+		series: [{
+			name: '출력',
+			type: 'column',
+			yAxis: 1,
+			data: [
+				{ y: 258.69, color: '#37A6FB' }, // 첫 번째 막대 색상
+				{ y: 287.75, color: '#0060A9' }, // 두 번째 막대 색상
+				{ y: 285.79, color: '#8800A3' }  // 세 번째 막대 색상
+			],
+			tooltip: {
+				valueSuffix: ' MV'
+			}
+		}, {
+			name: '효율',
+			type: 'spline',
+			data: [
+				30.88, 36.04, 31.79
+			],
+			color: '#F24216', // 라인 색상 설정
+			dashStyle: 'Dash', // 점선으로 설정
+			tooltip: {
+				valueSuffix: '%'
+			}
+		}]
+	});
+
+	</script>
+
+</body>
+
+</html>

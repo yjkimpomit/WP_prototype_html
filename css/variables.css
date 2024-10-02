@@ -244,12 +244,14 @@
 	--gnb-width-negative: -180px;
 
 	--wp-modal-width: 1600px;
-	--wp-modal-width-folded: 360px;
+	--wp-side-panel-width: 360px;
 
 	--wp-mordal-split-padding: 2.5rem;
 
 	/* btn */
+	--bs-border-radius: .25rem;
 	--bs-border-radius-xs: .125rem;
+	--wp-border-radius-full: 1000px;
 
 	/* nav-link */
 	--bs-nav-link-padding-y: .25rem;
