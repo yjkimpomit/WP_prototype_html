@@ -18,7 +18,32 @@
 
 /*#################### 폰트 ####################*/
 @import url(../fonts/NotoSansKR/NotoSansKR.css);
-@import url(../fonts/Roboto/Roboto.css);
+/* @import url(../fonts/Roboto/Roboto.css); */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap');
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-medium-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
 
 @import url(./variables.css);
 @import url(./header.css);
