@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url(./high-chart-custom.css);
+@import url(high-chart-custom.css);
 
 /*#################### 모달 ####################*/
 .modal-dialog-scrollable .modal-content {
