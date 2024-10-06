@@ -2,6 +2,10 @@
 @import url(high-chart-custom.css);
 
 /*#################### 모달 ####################*/
+.modal {
+margin: 0 auto;
+}
+
 .modal-dialog-scrollable .modal-content {
 	height: 800px;
 }
