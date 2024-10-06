@@ -281,6 +281,12 @@
 				</div>
 			</div>
 		</div>
+		<script>
+		$('#externalModal').on('hidden.bs.modal', function () {
+			$(this).find('.modal-content').html(''); // 모달 내용을 비워줌
+		  });
+		</script>
+
 	
 
 	</body>
