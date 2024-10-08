@@ -1,11 +1,11 @@
 # 파일이 커서 업로드 제외
-css/bootstrap/
-fonts/NotoSansKR/
-fonts/Roboto/
+# css/bootstrap/
+# fonts/NotoSansKR/
+# fonts/Roboto/
 fonts/.DS_Store
 js/3dViewer/
 js/pdfjs/
-js/jsTree/
+# js/jsTree/
 js/.DS_Store
 
 # 파일
