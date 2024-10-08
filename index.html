@@ -31,9 +31,9 @@
 		
 		<script src="./js/common.js" defer></script>
 
-		<!-- 유니티 --> <!-- 
+		<!-- 유니티 --> 
 	 	<link rel="stylesheet" href="./TemplateData/style.css">
-		<link rel="manifest" href="./manifest.webmanifest"> -->
+		<link rel="manifest" href="./manifest.webmanifest">
 	</head>
 	<body class="main">
 		<div class="header-box">
@@ -165,8 +165,8 @@
 			</div>
 		</div>
 
+		<!-- unity viewer start -->
 		<div id="container" class="unity-box">
-			<!-- unity viewer start -->
 			<div id="unity-container" class="model-box">
 				<canvas id="unity-canvas"></canvas>
 				<div id="unity-loading-bar">
@@ -176,11 +176,11 @@
 					</div>
 				</div>
 				<div id="unity-warning"> </div>
+			</div>
 		</div>
-			<!-- unity viewer end -->
-		</div>
+		<!-- unity viewer end -->
 	
-		<!-- 유니티
+		<!-- 유니티 -->
 		<script>
 			window.addEventListener("load", function () {
 			if ("serviceWorker" in navigator) {
@@ -266,9 +266,10 @@
 			document.body.appendChild(script);
 		</script>
 
-		<script src="./public/js/app.js" defer></script> -->
+		<script src="./public/js/app.js" defer></script>
+		
 
-		<!-- Modal -->
+		<!-- Modal reset -->
 		<div class="modal fade" id="externalModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 				<div class="modal-content" id="modal-content">
@@ -281,8 +282,6 @@
 			$(this).find('.modal-content').html(''); // 모달 내용을 비워줌
 		  });
 		</script>
-
-	
 
 	</body>
 </html>
