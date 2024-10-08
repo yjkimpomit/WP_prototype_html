@@ -62,8 +62,8 @@
 	border-bottom: solid 1px var(--border-neutral-tertiary);
 }
 
-.menu-list .menu-item:hover {
-	background-color: var(--bg-neutral-tertiary);
+.menu-list .menu-item.active:hover {
+	background-color: var(--bg-brand-tertiary);
 }
 
 .menu-list .menu-link {
@@ -94,8 +94,14 @@
 	justify-content: center;
 }
 
-.menu-list .menu-item>.menu-link:hover {
+.menu-list .menu-item.active>.menu-link:hover {
 	background-position: left 40%;
+	color: var(--text-brand-tertiary);
+}
+
+/* temp */
+.menu-list .menu-item>.menu-link:hover {
+	color: inherit;
 }
 
 .menu-list .menu-item[data-index="1"]>.menu-link {
