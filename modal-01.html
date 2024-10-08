@@ -122,6 +122,81 @@
 	$(document).ready(function () {
 
 		$('.modal.facility').addClass('folded');
+
+		// Initialize jsTree
+		initializeJSTree();
+
+		let isCollapsed = true;
+		$('#toggle-side').css('transform', 'scaleX(-1)');
+
+		function openSidePanel() {
+			$('.modal.facility').removeClass('modal-move folded');
+			$('.modal.facility').addClass('unfolded');
+			$('#toggle-side').attr('title', '패널 닫기').css('transform', 'scaleX(-1)');
+			isCollapsed = false;
+		}
+
+		function closeSidePanel() {
+			$('.modal.facility').addClass('modal-move folded').removeClass('unfolded');
+			$('#toggle-side').attr('title', '패널 열기').css('transform', 'scaleX(1)');
+			isCollapsed = true;
+		}
+
+		// Toggle function for the side panel
+		$('#toggle-side').on('click', function () {
+			isCollapsed ? openSidePanel() : closeSidePanel();
+		});
+
+		function initializeJSTree() {
+			const treeData = [
+				{ "id": "node1", "parent": "#", "text": "SSWP-B", "icon": "visibility" },
+				{ "id": "node2", "parent": "#", "text": "CTCS-A BALL RECIRCULATION PUMP", "icon": "visibility" },
+				{ "id": "node3", "parent": "#", "text": "#1 GT LOWS", "icon": "visibility" },
+				// Add more nodes as needed
+				{ "id": "node1-1", "parent": "node1", "text": "MTR CLG WTR Line", "icon": "visibility" },
+				{ "id": "node1-1-1", "parent": "node1-1", "text": "DISCH Seal WTR Line Safety Valve", "icon": "visibility" },
+				{ "id": "node1-1-1-1", "parent": "node1-1-1", "text": "CTCS-A BALL RECIRCULATION PUMP", "icon": "visibility" }
+			];
+
+			$('#jstree').jstree({
+				'core': {
+					'data': treeData
+				},
+				'state': {
+					'key': 'jstree'
+				},
+				'types': {
+					'default': { 'icon': false },
+					'folder': { 'icon': false }
+				},
+				'plugins': ["types", "search"]
+			});
+
+			// Node text click event
+			$('#jstree').on("select_node.jstree", function (e, data) {
+				const selectedNodeText = data.node.text || "좌측 패널에서 설비명을 검색해 주세요.";
+				$('#content-display h2.box-title01').text(selectedNodeText);
+				openSidePanel(); // Always open panel when a node is clicked
+			});
+
+			// Icon click event (e.g., the eye icon)
+			$('#jstree').on("click", ".eye-icon", function (e) {
+				e.stopPropagation(); // Prevent click event from affecting the node
+				const $icon = $(this);
+				const nodeId = $icon.data('node');
+
+				// Toggle visibility (icon change)
+				$icon.text($icon.text() === 'visibility' ? 'visibility_off' : 'visibility');
+			});
+		}
+	});
+</script>
+
+
+<!-- <script>
+	$(document).ready(function () {
+
+		$('.modal.facility').addClass('folded');
 		
 		// jsTree 초기화 함수
 		initializeJSTree();
@@ -266,6 +341,6 @@
 
 	});
 
-</script>
+</script> -->
 
 
